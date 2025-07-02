@@ -1,0 +1,12 @@
+# ninja log v6
+4	1548	7731207995213674	src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	f388332452833d86
+1552	1676	7731208010697084	src/libgetSystemMetrics.a	e79a52348306bd85
+9	538	7731208015625727	src/CMakeFiles/monitor.dir/main.c.obj	fab0da35d9ed0a13
+538	803	7731208020927136	src/monitor.exe	64a25a7011ce53fb
+48	613	7731211867934950	src/CMakeFiles/monitor.dir/main.c.obj	fab0da35d9ed0a13
+7	1616	7731211867526058	src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	f388332452833d86
+1616	1740	7731211883610846	src/libgetSystemMetrics.a	e79a52348306bd85
+1740	1930	7731211884850991	src/monitor.exe	64a25a7011ce53fb
+6	1383	7731214725332741	src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	f388332452833d86
+1384	1520	7731214739103499	src/libgetSystemMetrics.a	e79a52348306bd85
+1520	1715	7731214740467983	src/monitor.exe	64a25a7011ce53fb
