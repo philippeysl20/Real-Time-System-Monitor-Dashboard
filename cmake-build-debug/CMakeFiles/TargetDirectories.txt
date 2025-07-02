@@ -1,0 +1,6 @@
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/CMakeFiles/getSystemMetrics.dir
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/CMakeFiles/monitor.dir
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
