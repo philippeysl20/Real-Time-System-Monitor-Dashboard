@@ -107,7 +107,7 @@
 			"path" : "C:/Program Files/JetBrains/CLion 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
-			"path" : "src/CMakeLists.txt"
+			"path" : "src/backend/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

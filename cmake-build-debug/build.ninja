@@ -77,12 +77,12 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_getSystemMetrics: phony || .
 
-build src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
-  DEP_FILE = src\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.c.obj.d
+build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
+  DEP_FILE = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src
-  OBJECT_DIR = src\CMakeFiles\getSystemMetrics.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\getSystemMetrics.dir
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
 
 
 # =============================================================================
@@ -90,14 +90,14 @@ build src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__ge
 
 
 #############################################
-# Link the static library src\libgetSystemMetrics.a
+# Link the static library src\backend\libgetSystemMetrics.a
 
-build src/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj
+build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src\CMakeFiles\getSystemMetrics.dir
+  OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = src\libgetSystemMetrics.a
+  TARGET_FILE = src\backend\libgetSystemMetrics.a
   TARGET_PDB = getSystemMetrics.a.dbg
 
 # =============================================================================
@@ -109,12 +109,19 @@ build src/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug
 
 build cmake_object_order_depends_target_monitor: phony || cmake_object_order_depends_target_getSystemMetrics
 
-build src/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/main.c || cmake_object_order_depends_target_monitor
-  DEP_FILE = src\CMakeFiles\monitor.dir\main.c.obj.d
+build src/backend/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/main.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src
-  OBJECT_DIR = src\CMakeFiles\monitor.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\monitor.dir
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir
+
+build src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/Mongoose/mongoose.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\Mongoose\mongoose.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\Mongoose
 
 
 # =============================================================================
@@ -122,51 +129,51 @@ build src/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug
 
 
 #############################################
-# Link the executable src\monitor.exe
+# Link the executable src\backend\monitor.exe
 
-build src/monitor.exe: C_EXECUTABLE_LINKER__monitor_Debug src/CMakeFiles/monitor.dir/main.c.obj | src/libgetSystemMetrics.a || src/libgetSystemMetrics.a
+build src/backend/monitor.exe: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeFiles/monitor.dir/main.c.obj src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj | src/backend/libgetSystemMetrics.a || src/backend/libgetSystemMetrics.a
   FLAGS = -g
-  LINK_LIBRARIES = src/libgetSystemMetrics.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = src\CMakeFiles\monitor.dir
+  LINK_LIBRARIES = src/backend/libgetSystemMetrics.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = src\monitor.exe
-  TARGET_IMPLIB = src\libmonitor.dll.a
+  TARGET_FILE = src\backend\monitor.exe
+  TARGET_IMPLIB = src\backend\libmonitor.dll.a
   TARGET_PDB = monitor.exe.dbg
 
 
 #############################################
 # Utility command for edit_cache
 
-build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build src/backend/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src\backend && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build src/edit_cache: phony src/CMakeFiles/edit_cache.util
+build src/backend/edit_cache: phony src/backend/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard -BC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug"
+build src/backend/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src\backend && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard -BC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
+build src/backend/rebuild_cache: phony src/backend/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Target aliases.
 
-build getSystemMetrics: phony src/libgetSystemMetrics.a
+build getSystemMetrics: phony src/backend/libgetSystemMetrics.a
 
-build libgetSystemMetrics.a: phony src/libgetSystemMetrics.a
+build libgetSystemMetrics.a: phony src/backend/libgetSystemMetrics.a
 
-build monitor: phony src/monitor.exe
+build monitor: phony src/backend/monitor.exe
 
-build monitor.exe: phony src/monitor.exe
+build monitor.exe: phony src/backend/monitor.exe
 
 # =============================================================================
 # Folder targets.
@@ -176,14 +183,14 @@ build monitor.exe: phony src/monitor.exe
 #############################################
 # Folder: C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug
 
-build all: phony src/all
+build all: phony src/backend/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src
+# Folder: C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend
 
-build src/all: phony src/libgetSystemMetrics.a src/monitor.exe
+build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/monitor.exe
 
 # =============================================================================
 # Built-in targets
@@ -192,14 +199,14 @@ build src/all: phony src/libgetSystemMetrics.a src/monitor.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
 
 
 #############################################
