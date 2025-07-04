@@ -9,7 +9,22 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
+    const socket = new WebSocket('ws://localhost:3000');
 
+    socket.addEventListener("open", () => {
+      console.log("Websocket connection opened")
+    })
+
+    socket.addEventListener("message", (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "CPU-data") {
+        // do something with the cpu data. use the CpuChart function
+      } else if (data.type === "Disk-data") {
+        // do something with the disk data. use the DiskChart function
+      } else {
+        // do something with the memory data. use the MemoryChart function
+      }
+    })
   })
 
 
