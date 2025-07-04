@@ -20,7 +20,16 @@ void getMemoryUsage() {
 }
 
 void getDiskUsage() {
-
+    ULARGE_INTEGER freeBytesAvailable, totalBytes, totalFreeBytes;
+    
+    // check if Windows API function GetDiskFreeSpaceEx successfully retrieves disk info
+    // returning nonzero (true), means success, zero means failure
+    if (GetDiskFreeSpaceEx(L"C:\\", &freeBytesAvailable, &totalBytes, &totalFreeBytes)) { // L"C:\\" is string literal for root of C: drive
+        ULONGLONG totalUsedBytes = totalBytes.QuadPart - totalFreeBytes.QuadPart;         // compute used
+        printf("Total Space: %llu GB\n", totalBytes.QuadPart / (1024 * 1024 * 1024));     // print total
+        printf("Free Space: %llu GB\n", totalFreeBytes.QuadPart / (1024 * 1024 * 1024));  // print free
+        printf("Used space: %llu GB\n", totalUsedBytes / (1024 * 1024 * 1024));           // print used
+    }
 }
 
 #elif defined(__APPLE__)
