@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { CpuChart, MemoryChart, DiskChart } from './components/Charts'
 import './App.css'
-const WebSocket = require('ws');
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let CPUarray = [];
+  let cpugraphic = "";
   useEffect(() => {
     const socket = new WebSocket('ws://localhost:3000');
 
@@ -18,10 +18,17 @@ function App() {
     socket.addEventListener("message", (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "CPU-data") {
+        CPUarray.push(data.cpudata);
+        cpugraphic = CpuChart(CPUarray)
+
+        // når der ikke er mere plads i chart:
+        if (CPUarray.length > 50) {
+          CPUarray.splice(0);
+        }
         // do something with the cpu data. use the CpuChart function
       } else if (data.type === "Disk-data") {
         // do something with the disk data. use the DiskChart function
-      } else {
+      } else if (data.type === "Memory-data") {
         // do something with the memory data. use the MemoryChart function
       }
     })

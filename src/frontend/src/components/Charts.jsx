@@ -1,83 +1,50 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-const CpuChart = ({ dataPoints }) => {
-  const data = {
-    labels: dataPoints.map((_, i) => i + 1),
+function createPieData(label, value, usedColor) {
+  return {
+    labels: ['Used', 'Free'],
     datasets: [
       {
-        label: 'CPU Usage (%)',
-        data: dataPoints,
-        borderColor: 'rgba(75,192,192,1)',
-        tension: 0.3,
-        fill: false
-      }
-    ]
+        label: `${label} Usage`,
+        data: [value, 100 - value],
+        backgroundColor: [usedColor, '#e0e0e0'],
+        borderWidth: 1,
+      },
+    ],
   };
+}
 
-  const options = {
-    responsive: true,
-    scales: {
-      y: { min: 0, max: 100 }
-    }
-  };
-
-  return <Line data={data} options={options} />;
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: 'bottom',
+    },
+  },
 };
 
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale);
+function CpuChart(value) {
+  const data = createPieData('CPU', value, 'rgba(75,192,192,0.8)');
+  return <Pie data={data} options={options} />;
+}
 
-const DiskChart = ({ dataPoints }) => {
-  const data = {
-    labels: dataPoints.map((_, i) => i + 1),
-    datasets: [
-      {
-        label: 'Disk Usage (%)',
-        data: dataPoints,
-        borderColor: 'rgb(98, 75, 192)',
-        tension: 0.3,
-        fill: false
-      }
-    ]
-  };
+function DiskChart(value) {
+  const data = createPieData('Disk', value, 'rgb(98, 75, 192)');
+  return <Pie data={data} options={options} />;
+}
 
-  const options = {
-    responsive: true,
-    scales: {
-      y: { min: 0, max: 100 }
-    }
-  };
+function MemoryChart(value) {
+  const data = createPieData('Memory', value, 'rgb(191, 22, 22)');
+  return <Pie data={data} options={options} />;
+}
 
-  return <Line data={data} options={options} />;
-};
-
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale);
-
-const MemoryChart = ({ dataPoints }) => {
-  const data = {
-    labels: dataPoints.map((_, i) => i + 1),
-    datasets: [
-      {
-        label: 'CPU Usage (%)',
-        data: dataPoints,
-        borderColor: 'rgb(191, 22, 22)',
-        tension: 0.3,
-        fill: false
-      }
-    ]
-  };
-
-  const options = {
-    responsive: true,
-    scales: {
-      y: { min: 0, max: 100 }
-    }
-  };
-
-  return <Line data={data} options={options} />;
-};
-
-export { MemoryChart, DiskChart, CpuChart };
+export { CpuChart, DiskChart, MemoryChart };
