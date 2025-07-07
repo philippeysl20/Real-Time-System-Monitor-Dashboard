@@ -40,15 +40,15 @@ void getDiskUsage() {
 #include <mach/mach.h>
 #include "getSystemMetrics.h"
 
-void getCPUUsage() {
+char getCPUUsage() {
 
 }
 
-void getMemoryUsage() {
+char getMemoryUsage() {
 
 }
 
-void getDiskUsage() {
+char getDiskUsage() {
 
 }
 

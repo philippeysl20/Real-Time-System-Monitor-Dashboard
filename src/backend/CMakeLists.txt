@@ -1,5 +1,10 @@
 # Create libraries for functions in the program
 add_library(getSystemMetrics getSystemMetrics.c getSystemMetrics.h)
+add_library(webSocketEventHandling webSocketEventHandling.h
+        webSocketEventHandling.c)
+add_library(buildJSON BuildJSON.h
+        buildJSON.c)
+
 
 # Make header files in current folder and mongoose folder available for #include
 target_include_directories(getSystemMetrics PUBLIC

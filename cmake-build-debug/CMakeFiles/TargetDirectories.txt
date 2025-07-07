@@ -1,6 +1,8 @@
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/getSystemMetrics.dir
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/monitor.dir
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/edit_cache.dir
-C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/rebuild_cache.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/getSystemMetrics.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/webSocketEventHandling.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/monitor.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/buildJSON.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/edit_cache.dir
+/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend/CMakeFiles/rebuild_cache.dir

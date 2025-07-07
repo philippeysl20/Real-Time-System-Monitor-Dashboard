@@ -10,7 +10,7 @@
 					[
 						1
 					],
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.29"
@@ -20,7 +20,7 @@
 				},
 				{
 					"build" : "src/backend",
-					"jsonFile" : "directory-src.backend-Debug-120330f0137e869bed3f.json",
+					"jsonFile" : "directory-src.backend-Debug-3815b753bcc19632a73e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.29"
@@ -31,7 +31,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -48,7 +50,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -56,16 +60,30 @@
 			[
 				{
 					"directoryIndex" : 1,
+					"id" : "buildJSON::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-buildJSON-Debug-caca59b214232bc9d5a4.json",
+					"name" : "buildJSON",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
 					"id" : "getSystemMetrics::@525b47d26c118ac1ce89",
-					"jsonFile" : "target-getSystemMetrics-Debug-6d87e4a298ae64c9951c.json",
+					"jsonFile" : "target-getSystemMetrics-Debug-15f0687afa93836bc49a.json",
 					"name" : "getSystemMetrics",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "monitor::@525b47d26c118ac1ce89",
-					"jsonFile" : "target-monitor-Debug-d1c56f3e137d2ae9a9f7.json",
+					"jsonFile" : "target-monitor-Debug-d606f944e4cff80f15c0.json",
 					"name" : "monitor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "webSocketEventHandling::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-webSocketEventHandling-Debug-479823e1b1500dbefc9d.json",
+					"name" : "webSocketEventHandling",
 					"projectIndex" : 0
 				}
 			]
@@ -74,8 +92,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug",
-		"source" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard"
+		"build" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug",
+		"source" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard"
 	},
 	"version" : 
 	{

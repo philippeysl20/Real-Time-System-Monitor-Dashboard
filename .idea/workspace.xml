@@ -14,7 +14,9 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
+      <config projectName="Real-Time-System-Monitor-Dashboard" targetName="buildJSON" />
       <config projectName="Real-Time-System-Monitor-Dashboard" targetName="getSystemMetrics" />
+      <config projectName="Real-Time-System-Monitor-Dashboard" targetName="webSocketEventHandling" />
       <config projectName="Real-Time-System-Monitor-Dashboard" targetName="monitor" />
     </generated>
   </component>
@@ -25,8 +27,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/backend/BuildJSON.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/buildJSON.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-949984081ded04a06f3a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-198b755eddf836036057.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9d5c15b13703038c6786.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-src.backend-Debug-120330f0137e869bed3f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2025-07-04T22-21-52-0992.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-getSystemMetrics-Debug-6d87e4a298ae64c9951c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-monitor-Debug-d1c56f3e137d2ae9a9f7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-3348aceebd9e6a41c4ad.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/src/backend/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/src/backend/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +89,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/philippeysl20/Real-Time-System-Monitor-Dashboard.git&quot;,
-    &quot;accountId&quot;: &quot;0452c5e1-789b-465d-9441-8978635c8ceb&quot;
+    &quot;accountId&quot;: &quot;173753f4-a519-4776-b6cb-3e47db36f9af&quot;
   }
 }</component>
   <component name="ProjectApplicationVersion">
@@ -104,12 +137,32 @@
       <recent name="C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\src\backend\Mongoose" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.monitor">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="buildJSON" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Real-Time-System-Monitor-Dashboard" TARGET_NAME="buildJSON" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="monitor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Real-Time-System-Monitor-Dashboard" TARGET_NAME="monitor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Real-Time-System-Monitor-Dashboard" RUN_TARGET_NAME="monitor">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="webSocketEventHandling" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Real-Time-System-Monitor-Dashboard" TARGET_NAME="webSocketEventHandling" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.buildJSON" />
+      <item itemvalue="CMake Application.monitor" />
+      <item itemvalue="CMake Application.webSocketEventHandling" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -126,6 +179,8 @@
       <workItem from="1751667706082" duration="267000" />
       <workItem from="1751754119380" duration="602000" />
       <workItem from="1751754891974" duration="453000" />
+      <workItem from="1751818274057" duration="1544000" />
+      <workItem from="1751819840347" duration="8632000" />
     </task>
     <servers />
   </component>
