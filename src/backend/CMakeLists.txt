@@ -11,6 +11,10 @@ target_include_directories(getSystemMetrics PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/mongoose
 )
+target_include_directories(webSocketEventHandling PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/mongoose
+)
 
 # Add the executable and include mongoose.c as part of the build
 add_executable(monitor

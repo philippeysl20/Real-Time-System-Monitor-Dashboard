@@ -1,9 +1,8 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "src/backend/libgetSystemMetrics.a"
+			"path" : "src/backend/monitor"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"target_include_directories"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -26,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 2,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -68,13 +67,41 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		}
 	],
-	"id" : "getSystemMetrics::@525b47d26c118ac1ce89",
-	"name" : "getSystemMetrics",
-	"nameOnDisk" : "libgetSystemMetrics.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "getSystemMetrics::@525b47d26c118ac1ce89"
+		}
+	],
+	"id" : "monitor::@525b47d26c118ac1ce89",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "src/backend/libgetSystemMetrics.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "monitor",
+	"nameOnDisk" : "monitor",
 	"paths" : 
 	{
 		"build" : "src/backend",
@@ -86,13 +113,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
-			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
+				0,
 				1
 			]
 		}
@@ -102,14 +123,15 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/backend/getSystemMetrics.c",
+			"path" : "src/backend/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/backend/getSystemMetrics.h",
-			"sourceGroupIndex" : 1
+			"compileGroupIndex" : 0,
+			"path" : "src/backend/mongoose/mongoose.c",
+			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }

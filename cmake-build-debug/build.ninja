@@ -113,6 +113,7 @@ build cmake_object_order_depends_target_webSocketEventHandling: phony || .
 build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.o: C_COMPILER__webSocketEventHandling_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/webSocketEventHandling.c || cmake_object_order_depends_target_webSocketEventHandling
   DEP_FILE = src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.o.d
   FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
   OBJECT_DIR = src/backend/CMakeFiles/webSocketEventHandling.dir
   OBJECT_FILE_DIR = src/backend/CMakeFiles/webSocketEventHandling.dir
 
@@ -132,6 +133,38 @@ build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocke
   PRE_LINK = :
   TARGET_FILE = src/backend/libwebSocketEventHandling.a
   TARGET_PDB = webSocketEventHandling.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target buildJSON
+
+
+#############################################
+# Order-only phony target for buildJSON
+
+build cmake_object_order_depends_target_buildJSON: phony || .
+
+build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o: C_COMPILER__buildJSON_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c || cmake_object_order_depends_target_buildJSON
+  DEP_FILE = src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o.d
+  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
+  OBJECT_FILE_DIR = src/backend/CMakeFiles/buildJSON.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target buildJSON
+
+
+#############################################
+# Link the static library src/backend/libbuildJSON.a
+
+build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/backend/libbuildJSON.a
+  TARGET_PDB = buildJSON.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target monitor
@@ -172,38 +205,6 @@ build src/backend/monitor: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeF
   PRE_LINK = :
   TARGET_FILE = src/backend/monitor
   TARGET_PDB = monitor.dbg
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target buildJSON
-
-
-#############################################
-# Order-only phony target for buildJSON
-
-build cmake_object_order_depends_target_buildJSON: phony || .
-
-build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o: C_COMPILER__buildJSON_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c || cmake_object_order_depends_target_buildJSON
-  DEP_FILE = src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/buildJSON.dir
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target buildJSON
-
-
-#############################################
-# Link the static library src/backend/libbuildJSON.a
-
-build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o
-  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = src/backend/libbuildJSON.a
-  TARGET_PDB = buildJSON.a.dbg
 
 
 #############################################
@@ -260,7 +261,7 @@ build all: phony src/backend/all
 #############################################
 # Folder: /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend
 
-build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/libwebSocketEventHandling.a src/backend/monitor src/backend/libbuildJSON.a
+build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/libwebSocketEventHandling.a src/backend/libbuildJSON.a src/backend/monitor
 
 # =============================================================================
 # Built-in targets

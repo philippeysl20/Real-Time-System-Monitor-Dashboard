@@ -2,8 +2,8 @@
 #ifndef GETSYSTEMMETRICS_H
 #define GETSYSTEMMETRICS_H
 
-char getCPUUsage();
-char getMemoryUsage();
-char getDiskUsage();
+char *getCPUUsage();
+char *getMemoryUsage();
+char *getDiskUsage();
 
 #endif //GETSYSTEMMETRICS_H

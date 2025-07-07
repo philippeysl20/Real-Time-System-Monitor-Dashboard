@@ -1,8 +1,10 @@
-//
-// Created by Philippe Bourrachot on 07/07/2025.
-//
-
 #ifndef BUILDJSON_H
 #define BUILDJSON_H
+
+char *buildCPUJSON();
+
+char *buildDiskJSON();
+
+char *buildMemoryJSON();
 
 #endif //BUILDJSON_H

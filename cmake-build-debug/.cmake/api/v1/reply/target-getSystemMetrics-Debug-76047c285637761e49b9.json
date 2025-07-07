@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/backend/libwebSocketEventHandling.a"
+			"path" : "src/backend/libgetSystemMetrics.a"
 		}
 	],
 	"backtrace" : 1,
@@ -11,7 +11,8 @@
 	{
 		"commands" : 
 		[
-			"add_library"
+			"add_library",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -25,7 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 3,
+				"line" : 2,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 10,
 				"parent" : 0
 			}
 		]
@@ -39,6 +46,17 @@
 					"fragment" : "-g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
 				}
 			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
+				}
+			],
 			"language" : "C",
 			"languageStandard" : 
 			{
@@ -50,13 +68,13 @@
 			},
 			"sourceIndexes" : 
 			[
-				1
+				0
 			]
 		}
 	],
-	"id" : "webSocketEventHandling::@525b47d26c118ac1ce89",
-	"name" : "webSocketEventHandling",
-	"nameOnDisk" : "libwebSocketEventHandling.a",
+	"id" : "getSystemMetrics::@525b47d26c118ac1ce89",
+	"name" : "getSystemMetrics",
+	"nameOnDisk" : "libgetSystemMetrics.a",
 	"paths" : 
 	{
 		"build" : "src/backend",
@@ -65,14 +83,14 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
+			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
 				0
 			]
 		},
 		{
-			"name" : "Source Files",
+			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
 				1
@@ -83,13 +101,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "src/backend/webSocketEventHandling.h",
+			"compileGroupIndex" : 0,
+			"path" : "src/backend/getSystemMetrics.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/backend/webSocketEventHandling.c",
+			"path" : "src/backend/getSystemMetrics.h",
 			"sourceGroupIndex" : 1
 		}
 	],

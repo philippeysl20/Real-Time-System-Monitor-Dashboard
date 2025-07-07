@@ -11,15 +11,15 @@
 #pragma comment (lib, "pdh.lib")
 #pragma comment (lib, "psapi.lib")
 
-void getCPUUsage() {
+void *getCPUUsage() {
 
 }
 
-void getMemoryUsage() {
+void *getMemoryUsage() {
 
 }
 
-void getDiskUsage() {
+void *getDiskUsage() {
     ULARGE_INTEGER freeBytesAvailable, totalBytes, totalFreeBytes;
     
     // check if Windows API function GetDiskFreeSpaceEx successfully retrieves disk info
@@ -40,15 +40,15 @@ void getDiskUsage() {
 #include <mach/mach.h>
 #include "getSystemMetrics.h"
 
-char getCPUUsage() {
+char *getCPUUsage() {
 
 }
 
-char getMemoryUsage() {
+char *getMemoryUsage() {
 
 }
 
-char getDiskUsage() {
+char *getDiskUsage() {
 
 }
 
@@ -60,15 +60,15 @@ char getDiskUsage() {
 #include <sys/sysinfo.h>
 #include "getSystemMetrics.h"
 
-void getCPUUsage() {
+char *getCPUUsage() {
 
 }
 
-void getMemoryUsage() {
+char *getMemoryUsage() {
 
 }
 
-void getDiskUsage() {
+char *getDiskUsage() {
 
 }
 
