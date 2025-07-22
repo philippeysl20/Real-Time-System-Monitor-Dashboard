@@ -1,5 +1,9 @@
 #include "mongoose.h"
 #include "webSocketEventHandling.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "globals.h"
 
 int main(void) {
     struct mg_mgr mgr; // Declare manager object
@@ -15,6 +19,13 @@ int main(void) {
     // in webSocketEventHandler.c, and the third being data about the user connected, which is optional
     // and can be set as NULL.
     mg_http_listen(&mgr, WebSocket, webSocketEventHandler, NULL); // Begin listening on the URL
+
+    running = 1;
+    while (running) {
+        mg_mgr_poll(&mgr, 1000);
+    }
+
+    mg_mgr_free(&mgr);
 
     return 0;
 }

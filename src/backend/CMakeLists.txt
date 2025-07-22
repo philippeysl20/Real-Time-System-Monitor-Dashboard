@@ -14,13 +14,16 @@ target_include_directories(getSystemMetrics PUBLIC
 target_include_directories(webSocketEventHandling PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/mongoose
+        ${CMAKE_CURRENT_SOURCE_DIR}/globals.h
 )
 
 # Add the executable and include mongoose.c as part of the build
 add_executable(monitor
         main.c
         mongoose/mongoose.c
+        globals.h
 )
 
 # Link the executable with the getSystemMetrics library
 target_link_libraries(monitor PRIVATE getSystemMetrics)
+

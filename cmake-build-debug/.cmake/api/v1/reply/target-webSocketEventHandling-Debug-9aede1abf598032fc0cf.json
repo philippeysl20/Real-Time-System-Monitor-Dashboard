@@ -55,6 +55,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/globals.h"
 				}
 			],
 			"language" : "C",

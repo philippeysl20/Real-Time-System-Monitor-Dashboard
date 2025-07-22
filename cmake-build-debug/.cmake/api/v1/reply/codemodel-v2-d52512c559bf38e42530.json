@@ -75,14 +75,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "monitor::@525b47d26c118ac1ce89",
-					"jsonFile" : "target-monitor-Debug-18d1f4fb5dbc4f0bcb9e.json",
+					"jsonFile" : "target-monitor-Debug-65d79656abf1957284f4.json",
 					"name" : "monitor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "webSocketEventHandling::@525b47d26c118ac1ce89",
-					"jsonFile" : "target-webSocketEventHandling-Debug-418485c5270cd3dfc269.json",
+					"jsonFile" : "target-webSocketEventHandling-Debug-9aede1abf598032fc0cf.json",
 					"name" : "webSocketEventHandling",
 					"projectIndex" : 0
 				}
