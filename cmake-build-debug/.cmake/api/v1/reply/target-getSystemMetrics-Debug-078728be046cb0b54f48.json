@@ -43,18 +43,18 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
+					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
+					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
 				}
 			],
 			"language" : "C",

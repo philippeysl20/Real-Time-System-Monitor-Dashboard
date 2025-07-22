@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/backend/monitor"
+			"path" : "src/backend/monitor.exe"
+		},
+		{
+			"path" : "src/backend/monitor.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -42,18 +45,18 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
+					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
+					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose"
 				}
 			],
 			"language" : "C",
@@ -94,14 +97,18 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "src/backend/libgetSystemMetrics.a",
+				"fragment" : "src\\backend\\libgetSystemMetrics.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "monitor",
-	"nameOnDisk" : "monitor",
+	"nameOnDisk" : "monitor.exe",
 	"paths" : 
 	{
 		"build" : "src/backend",
@@ -129,7 +136,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/backend/mongoose/mongoose.c",
+			"path" : "src/backend/Mongoose/mongoose.c",
 			"sourceGroupIndex" : 0
 		}
 	],

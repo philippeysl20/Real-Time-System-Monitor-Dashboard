@@ -28,7 +28,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/buildJSON.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/buildJSON.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +62,12 @@
     &quot;assignee&quot;: &quot;philippeysl20&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/philippeysl20/Real-Time-System-Monitor-Dashboard.git&quot;,
-    &quot;accountId&quot;: &quot;173753f4-a519-4776-b6cb-3e47db36f9af&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/philippeysl20/Real-Time-System-Monitor-Dashboard.git",
+    "accountId": "0452c5e1-789b-465d-9441-8978635c8ceb"
   }
-}</component>
+}]]></component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2024" />
@@ -107,6 +114,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.buildJSON">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="buildJSON" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Real-Time-System-Monitor-Dashboard" TARGET_NAME="buildJSON" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -148,6 +160,7 @@
       <workItem from="1751883851436" duration="329000" />
       <workItem from="1751884189251" duration="1651000" />
       <workItem from="1751888820617" duration="4183000" />
+      <workItem from="1753144846382" duration="4379000" />
     </task>
     <servers />
   </component>

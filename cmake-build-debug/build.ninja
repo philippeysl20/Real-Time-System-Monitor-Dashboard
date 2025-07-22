@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -56,7 +56,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard -B/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard -BC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -65,7 +65,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt
+# C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -77,12 +77,14 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_getSystemMetrics: phony || .
 
-build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.o: C_COMPILER__getSystemMetrics_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
-  DEP_FILE = src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
-  OBJECT_DIR = src/backend/CMakeFiles/getSystemMetrics.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/getSystemMetrics.dir
+build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
+  DEP_FILE = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.pdb
+  TARGET_PDB = src\backend\libgetSystemMetrics.pdb
 
 
 # =============================================================================
@@ -90,16 +92,16 @@ build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.o: C_COMPIL
 
 
 #############################################
-# Link the static library src/backend/libgetSystemMetrics.a
+# Link the static library src\backend\libgetSystemMetrics.a
 
-build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.o
-  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/backend/CMakeFiles/getSystemMetrics.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = src/backend/libgetSystemMetrics.a
-  TARGET_PDB = getSystemMetrics.a.dbg
+  OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.pdb
+  TARGET_FILE = src\backend\libgetSystemMetrics.a
+  TARGET_PDB = src\backend\libgetSystemMetrics.pdb
 
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target webSocketEventHandling
@@ -110,12 +112,14 @@ build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetri
 
 build cmake_object_order_depends_target_webSocketEventHandling: phony || .
 
-build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.o: C_COMPILER__webSocketEventHandling_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/webSocketEventHandling.c || cmake_object_order_depends_target_webSocketEventHandling
-  DEP_FILE = src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
-  OBJECT_DIR = src/backend/CMakeFiles/webSocketEventHandling.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/webSocketEventHandling.dir
+build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj: C_COMPILER__webSocketEventHandling_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/webSocketEventHandling.c || cmake_object_order_depends_target_webSocketEventHandling
+  DEP_FILE = src\backend\CMakeFiles\webSocketEventHandling.dir\webSocketEventHandling.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\webSocketEventHandling.dir\webSocketEventHandling.pdb
+  TARGET_PDB = src\backend\libwebSocketEventHandling.pdb
 
 
 # =============================================================================
@@ -123,16 +127,16 @@ build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c
 
 
 #############################################
-# Link the static library src/backend/libwebSocketEventHandling.a
+# Link the static library src\backend\libwebSocketEventHandling.a
 
-build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocketEventHandling_Debug src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.o
-  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocketEventHandling_Debug src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/backend/CMakeFiles/webSocketEventHandling.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = src/backend/libwebSocketEventHandling.a
-  TARGET_PDB = webSocketEventHandling.a.dbg
+  OBJECT_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\webSocketEventHandling.dir\webSocketEventHandling.pdb
+  TARGET_FILE = src\backend\libwebSocketEventHandling.a
+  TARGET_PDB = src\backend\libwebSocketEventHandling.pdb
 
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target buildJSON
@@ -143,11 +147,13 @@ build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocke
 
 build cmake_object_order_depends_target_buildJSON: phony || .
 
-build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o: C_COMPILER__buildJSON_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c || cmake_object_order_depends_target_buildJSON
-  DEP_FILE = src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/buildJSON.dir
+build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj: C_COMPILER__buildJSON_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c || cmake_object_order_depends_target_buildJSON
+  DEP_FILE = src\backend\CMakeFiles\buildJSON.dir\buildJSON.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = src\backend\CMakeFiles\buildJSON.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\buildJSON.dir
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\buildJSON.dir\buildJSON.pdb
+  TARGET_PDB = src\backend\libbuildJSON.pdb
 
 
 # =============================================================================
@@ -155,16 +161,16 @@ build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o: C_COMPILER__buildJSON_
 
 
 #############################################
-# Link the static library src/backend/libbuildJSON.a
+# Link the static library src\backend\libbuildJSON.a
 
-build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.o
-  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = src/backend/CMakeFiles/buildJSON.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = src/backend/libbuildJSON.a
-  TARGET_PDB = buildJSON.a.dbg
+  OBJECT_DIR = src\backend\CMakeFiles\buildJSON.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\buildJSON.dir\buildJSON.pdb
+  TARGET_FILE = src\backend\libbuildJSON.a
+  TARGET_PDB = src\backend\libbuildJSON.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target monitor
@@ -175,19 +181,23 @@ build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/b
 
 build cmake_object_order_depends_target_monitor: phony || cmake_object_order_depends_target_getSystemMetrics
 
-build src/backend/CMakeFiles/monitor.dir/main.c.o: C_COMPILER__monitor_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/main.c || cmake_object_order_depends_target_monitor
-  DEP_FILE = src/backend/CMakeFiles/monitor.dir/main.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
-  OBJECT_DIR = src/backend/CMakeFiles/monitor.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/monitor.dir
+build src/backend/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/main.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\monitor.dir\
+  TARGET_PDB = src\backend\monitor.pdb
 
-build src/backend/CMakeFiles/monitor.dir/mongoose/mongoose.c.o: C_COMPILER__monitor_unscanned_Debug /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose/mongoose.c || cmake_object_order_depends_target_monitor
-  DEP_FILE = src/backend/CMakeFiles/monitor.dir/mongoose/mongoose.c.o.d
-  FLAGS = -g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -I/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
-  OBJECT_DIR = src/backend/CMakeFiles/monitor.dir
-  OBJECT_FILE_DIR = src/backend/CMakeFiles/monitor.dir/mongoose
+build src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/Mongoose/mongoose.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\Mongoose\mongoose.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\Mongoose
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\monitor.dir\
+  TARGET_PDB = src\backend\monitor.pdb
 
 
 # =============================================================================
@@ -195,23 +205,25 @@ build src/backend/CMakeFiles/monitor.dir/mongoose/mongoose.c.o: C_COMPILER__moni
 
 
 #############################################
-# Link the executable src/backend/monitor
+# Link the executable src\backend\monitor.exe
 
-build src/backend/monitor: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeFiles/monitor.dir/main.c.o src/backend/CMakeFiles/monitor.dir/mongoose/mongoose.c.o | src/backend/libgetSystemMetrics.a || src/backend/libgetSystemMetrics.a
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
-  LINK_LIBRARIES = src/backend/libgetSystemMetrics.a
-  OBJECT_DIR = src/backend/CMakeFiles/monitor.dir
-  POST_BUILD = :
-  PRE_LINK = :
-  TARGET_FILE = src/backend/monitor
-  TARGET_PDB = monitor.dbg
+build src/backend/monitor.exe: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeFiles/monitor.dir/main.c.obj src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj | src/backend/libgetSystemMetrics.a || src/backend/libgetSystemMetrics.a
+  FLAGS = -g
+  LINK_LIBRARIES = src/backend/libgetSystemMetrics.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\backend\CMakeFiles\monitor.dir\
+  TARGET_FILE = src\backend\monitor.exe
+  TARGET_IMPLIB = src\backend\libmonitor.dll.a
+  TARGET_PDB = src\backend\monitor.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build src/backend/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src\backend && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -222,7 +234,7 @@ build src/backend/edit_cache: phony src/backend/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build src/backend/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard -B/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug\src\backend && "C:\Program Files\JetBrains\CLion 2024.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard -BC:\Users\phili\Documents\GitHub\Real-Time-System-Monitor-Dashboard\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -242,7 +254,9 @@ build libgetSystemMetrics.a: phony src/backend/libgetSystemMetrics.a
 
 build libwebSocketEventHandling.a: phony src/backend/libwebSocketEventHandling.a
 
-build monitor: phony src/backend/monitor
+build monitor: phony src/backend/monitor.exe
+
+build monitor.exe: phony src/backend/monitor.exe
 
 build webSocketEventHandling: phony src/backend/libwebSocketEventHandling.a
 
@@ -252,16 +266,16 @@ build webSocketEventHandling: phony src/backend/libwebSocketEventHandling.a
 # =============================================================================
 
 #############################################
-# Folder: /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug
+# Folder: C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug
 
 build all: phony src/backend/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend
+# Folder: C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/cmake-build-debug/src/backend
 
-build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/libwebSocketEventHandling.a src/backend/libbuildJSON.a src/backend/monitor
+build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/libwebSocketEventHandling.a src/backend/libbuildJSON.a src/backend/monitor.exe
 
 # =============================================================================
 # Built-in targets
@@ -270,14 +284,14 @@ build src/backend/all: phony src/backend/libgetSystemMetrics.a src/backend/libwe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.29/Modules/Platform/UnixPaths.cmake /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt /Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompileFeatures.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2024.2.1/bin/cmake/win/x64/share/cmake-3.29/Modules/Platform/WindowsPaths.cmake C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/CMakeLists.txt C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/CMakeLists.txt CMakeCache.txt CMakeFiles/3.29.6/CMakeCCompiler.cmake CMakeFiles/3.29.6/CMakeRCCompiler.cmake CMakeFiles/3.29.6/CMakeSystem.cmake: phony
 
 
 #############################################

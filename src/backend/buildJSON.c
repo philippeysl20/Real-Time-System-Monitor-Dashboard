@@ -3,7 +3,7 @@
 #include <string.h>
 #include <math.h>
 
-char *buildCPUJSON(data) {
+char *buildCPUJSON(double data) {
     char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
 
     if (result == NULL) { // Check if memory has been allocated.
