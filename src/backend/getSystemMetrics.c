@@ -13,7 +13,6 @@
 #pragma comment (lib, "psapi.lib")
 
 char *getCPUUsage() {
-
     // Get CPU usage using the libraries
     PDH_HQUERY cpuUsageQuery; // Initialize where the output and query should be stored
 
@@ -41,44 +40,40 @@ char *getCPUUsage() {
     double gatheredCPUData = cpuUsage.doubleValue;
 
     // Build the JSON using the gathered CPU data
-    char *json = buildCPUJSON(gatheredCPUData);
+    char *jsonStringCPU = buildCPUJSON(gatheredCPUData);
 
     // Return the final result
-    return json;
+    return jsonStringCPU;
 }
 
-char *getMemoryUsage() {
+void *getMemoryUsage(char **jsonStringMemoryPercentage, char **jsonStringMemoryTotal, char **jsonStringMemoryTotalAvailable, char **jsonStringMemoryUsed) {
+    MEMORYSTATUSEX memStatus;
 
+    memStatus.dwLength = sizeof(memStatus);
+
+    GlobalMemoryStatusEx(&memStatus);
 
     // Initialize a variable to hold the values gathered
-    double gatheredMemoryData;
+    double totalPhysical = (double)memStatus.ullTotalPhys / 1073741824.0;
+    double totalAvailablePhysical = (double)memStatus.ullAvailPhys / 1073741824.0;
+    double usedPhysical = ((double)(memStatus.ullTotalPhys - memStatus.ullAvailPhys)) / 1073741824.0;
+    double percentageUsed = memStatus.dwMemoryLoad;
 
     // Build the JSON using the gathered memory data
-    char *json = buildMemoryJSON(gatheredMemoryData);
-
-    // Return the final result
-    return json;
+    *jsonStringMemoryPercentage = buildMemoryPercentJSON(percentageUsed);
+    *jsonStringMemoryTotal = buildTotalMemoryJSON(totalPhysical);
+    *jsonStringMemoryTotalAvailable = buildTotalAvailableMemoryJSON(totalAvailablePhysical);
+    *jsonStringMemoryUsed = buildUsedMemoryJSON(usedPhysical);
 }
 
 char *getDiskUsage() {
 
 
-//    ULARGE_INTEGER freeBytesAvailable, totalBytes, totalFreeBytes;
-    
-    // check if Windows API function GetDiskFreeSpaceEx successfully retrieves disk info
-    // returning nonzero (true), means success, zero means failure
-//    if (GetDiskFreeSpaceEx(L"C:\\", &freeBytesAvailable, &totalBytes, &totalFreeBytes)) { // L"C:\\" is string literal for root of C: drive
-//        ULONGLONG totalUsedBytes = totalBytes.QuadPart - totalFreeBytes.QuadPart;         // compute used
-//        printf("Total Space: %llu GB\n", totalBytes.QuadPart / (1024 * 1024 * 1024));     // print total
-//        printf("Free Space: %llu GB\n", totalFreeBytes.QuadPart / (1024 * 1024 * 1024));  // print free
-//        printf("Used space: %llu GB\n", totalUsedBytes / (1024 * 1024 * 1024));           // print used
-//    }
-
     // Initialize a variable to hold the values gathered
     double gatheredDiskData;
 
     // Build the JSON using the gathered memory data
-    char *json = buildMemoryJSON(gatheredDiskData);
+    char *json = buildDiskJSON(gatheredDiskData);
 
     // Return the final result
     return json;
