@@ -29,12 +29,7 @@
     <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/BuildJSON.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/BuildJSON.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/buildJSON.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/buildJSON.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,11 +109,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.buildJSON">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="buildJSON" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Real-Time-System-Monitor-Dashboard" TARGET_NAME="buildJSON" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -164,6 +154,7 @@
       <workItem from="1753199131592" duration="1682000" />
       <workItem from="1753200844193" duration="1001000" />
       <workItem from="1753218679079" duration="10769000" />
+      <workItem from="1753315943525" duration="2877000" />
     </task>
     <servers />
   </component>

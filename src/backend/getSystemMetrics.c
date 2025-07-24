@@ -67,7 +67,18 @@ void *getMemoryUsage(char **jsonStringMemoryPercentage, char **jsonStringMemoryT
 }
 
 char *getDiskUsage() {
+    int size = GetLogicalDriveStrings(0, NULL);
+    char *paths = (char *)malloc(size);
+    GetLogicalDriveStrings(size, paths);
 
+    while (*paths != '\0') {;
+        ULARGE_INTEGER freeDiskSpace;
+        ULARGE_INTEGER totalDiskSpace;
+        ULARGE_INTEGER userFree;
+
+        GetDiskFreeSpaceEx(paths, &freeDiskSpace, &totalDiskSpace, &userFree);
+        paths += (strlen(paths) + 1);
+    }
 
     // Initialize a variable to hold the values gathered
     double gatheredDiskData;
