@@ -29,6 +29,11 @@
     <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/backend/InfoStructs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-98aaee8b93bd29eb3427.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2025-07-22T21-11-23-0404.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-getSystemMetrics-Debug-078728be046cb0b54f48.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-monitor-Debug-2927a6d11a8e85b4917e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-webSocketEventHandling-Debug-9aede1abf598032fc0cf.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CMakeLists.txt" afterDir="false" />
@@ -165,7 +170,7 @@
       <workItem from="1753218679079" duration="10769000" />
       <workItem from="1753315943525" duration="2915000" />
       <workItem from="1753399394928" duration="919000" />
-      <workItem from="1753400335636" duration="1862000" />
+      <workItem from="1753400335636" duration="2746000" />
     </task>
     <servers />
   </component>
