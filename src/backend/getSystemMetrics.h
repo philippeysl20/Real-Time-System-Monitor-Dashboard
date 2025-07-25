@@ -2,8 +2,10 @@
 #ifndef GETSYSTEMMETRICS_H
 #define GETSYSTEMMETRICS_H
 
-char *getCPUUsage();
-void *getMemoryUsage(char *jsonStringMemoryPercentage, char *jsonStringMemoryTotal, char *jsonStringMemoryTotalAvailable, char *jsonStringMemoryUsed);
-char *getDiskUsage();
+#include "InfoStructs.h"
+
+CPUInfo *getCPUUsage();
+MemoryInfo *getMemoryUsage(char *jsonStringMemoryPercentage, char *jsonStringMemoryTotal, char *jsonStringMemoryTotalAvailable, char *jsonStringMemoryUsed);
+DriveInfo *getDiskUsage();
 
 #endif //GETSYSTEMMETRICS_H

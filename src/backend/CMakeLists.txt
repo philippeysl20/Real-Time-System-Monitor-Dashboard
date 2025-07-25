@@ -10,6 +10,7 @@ add_library(buildJSON BuildJSON.h
 target_include_directories(getSystemMetrics PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/mongoose
+        ${CMAKE_CURRENT_SOURCE_DIR}/InfoStructs.h
 )
 target_include_directories(webSocketEventHandling PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
@@ -22,6 +23,7 @@ add_executable(monitor
         main.c
         mongoose/mongoose.c
         globals.h
+        InfoStructs.h
 )
 
 # Link the executable with the getSystemMetrics library

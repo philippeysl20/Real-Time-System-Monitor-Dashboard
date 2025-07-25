@@ -7,12 +7,13 @@
 #include <psapi.h>   // For memory info
 #include "getSystemMetrics.h"
 #include "buildJSON.c"
+#include "InfoStructs.h"
 
 // Link libraries
 #pragma comment (lib, "pdh.lib")
 #pragma comment (lib, "psapi.lib")
 
-char *getCPUUsage() {
+CPUInfo *getCPUUsage() {
     // Get CPU usage using the libraries
     PDH_HQUERY cpuUsageQuery; // Initialize where the output and query should be stored
 
@@ -46,48 +47,49 @@ char *getCPUUsage() {
     return jsonStringCPU;
 }
 
-void *getMemoryUsage(char **jsonStringMemoryPercentage, char **jsonStringMemoryTotal, char **jsonStringMemoryTotalAvailable, char **jsonStringMemoryUsed) {
+MemoryInfo *getMemoryUsage(char **jsonStringMemoryPercentage, char **jsonStringMemoryTotal, char **jsonStringMemoryTotalAvailable, char **jsonStringMemoryUsed) {
     MEMORYSTATUSEX memStatus;
+    MemoryInfo memInfo;
 
     memStatus.dwLength = sizeof(memStatus);
 
     GlobalMemoryStatusEx(&memStatus);
 
     // Initialize a variable to hold the values gathered
-    double totalPhysical = (double)memStatus.ullTotalPhys / 1073741824.0;
-    double totalAvailablePhysical = (double)memStatus.ullAvailPhys / 1073741824.0;
-    double usedPhysical = ((double)(memStatus.ullTotalPhys - memStatus.ullAvailPhys)) / 1073741824.0;
-    double percentageUsed = memStatus.dwMemoryLoad;
+    memInfo.totalPhysical = (double)memStatus.ullTotalPhys / 1073741824.0;
+    memInfo.totalAvailablePhysical = (double)memStatus.ullAvailPhys / 1073741824.0;
+    memInfo.usedPhysical = ((double)(memStatus.ullTotalPhys - memStatus.ullAvailPhys)) / 1073741824.0;
+    memInfo.percentageUsed = memStatus.dwMemoryLoad;
 
     // Build the JSON using the gathered memory data
-    *jsonStringMemoryPercentage = buildMemoryPercentJSON(percentageUsed);
-    *jsonStringMemoryTotal = buildTotalMemoryJSON(totalPhysical);
-    *jsonStringMemoryTotalAvailable = buildTotalAvailableMemoryJSON(totalAvailablePhysical);
-    *jsonStringMemoryUsed = buildUsedMemoryJSON(usedPhysical);
+    *jsonStringMemoryPercentage = buildMemoryPercentJSON(memInfo.percentageUsed);
+    *jsonStringMemoryTotal = buildTotalMemoryJSON(memInfo.totalPhysical);
+    *jsonStringMemoryTotalAvailable = buildTotalAvailableMemoryJSON(memInfo.totalAvailablePhysical);
+    *jsonStringMemoryUsed = buildUsedMemoryJSON(memInfo.usedPhysical);
 }
 
-char *getDiskUsage() {
+DriveInfo *getDiskUsage() {
     int size = GetLogicalDriveStrings(0, NULL);
     char *paths = (char *)malloc(size);
     GetLogicalDriveStrings(size, paths);
 
-    while (*paths != '\0') {;
-        ULARGE_INTEGER freeDiskSpace;
-        ULARGE_INTEGER totalDiskSpace;
-        ULARGE_INTEGER userFree;
+    int numberOfDrives = 0;
+    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1)
+        numberOfDrives++;
 
-        GetDiskFreeSpaceEx(paths, &freeDiskSpace, &totalDiskSpace, &userFree);
-        paths += (strlen(paths) + 1);
+    DriveInfo *diskInfos = malloc(sizeof(DriveInfo) * numberOfDrives);
+
+    int index = 0; // Use to iterate over drives when extracting info.
+    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1) {
+        strcpy(diskInfos[index].path, tempPath);
+
+        GetDiskFreeSpaceEx(paths,
+            &diskInfos[index].freeDiskSpace,
+            &diskInfos[index].totalDiskSpace,
+            &diskInfos[index].userFree);
+        index++;
     }
 
-    // Initialize a variable to hold the values gathered
-    double gatheredDiskData;
-
-    // Build the JSON using the gathered memory data
-    char *json = buildDiskJSON(gatheredDiskData);
-
-    // Return the final result
-    return json;
 }
 
 

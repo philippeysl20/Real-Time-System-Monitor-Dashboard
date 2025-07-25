@@ -80,7 +80,7 @@ build cmake_object_order_depends_target_getSystemMetrics: phony || .
 build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
   DEP_FILE = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
   OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
 
@@ -175,14 +175,14 @@ build cmake_object_order_depends_target_monitor: phony || cmake_object_order_dep
 build src/backend/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/main.c || cmake_object_order_depends_target_monitor
   DEP_FILE = src\backend\CMakeFiles\monitor.dir\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
   OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir
 
 build src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/Mongoose/mongoose.c || cmake_object_order_depends_target_monitor
   DEP_FILE = src\backend\CMakeFiles\monitor.dir\Mongoose\mongoose.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
   OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\Mongoose
 
