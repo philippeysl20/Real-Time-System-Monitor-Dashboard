@@ -4,8 +4,8 @@
 
 #include "InfoStructs.h"
 
-CPUInfo *getCPUUsage();
-MemoryInfo *getMemoryUsage(char *jsonStringMemoryPercentage, char *jsonStringMemoryTotal, char *jsonStringMemoryTotalAvailable, char *jsonStringMemoryUsed);
-DriveInfo *getDiskUsage();
+char *getCPUUsage();
+char *getMemoryUsage();
+char *getDiskUsage();
 
 #endif //GETSYSTEMMETRICS_H

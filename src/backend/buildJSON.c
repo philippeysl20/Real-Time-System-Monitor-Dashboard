@@ -2,117 +2,70 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include "cJSON.h"
+#include "InfoStructs.h"
 
-char *buildCPUJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
+char *buildCPUJSON(CPUInfo data) {
+    // Create a new JSON object
+    cJSON *object = cJSON_CreateObject();
 
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
-    }
+    // Store the information gathered in getSystemMetrics.c in the JSON object
+    cJSON_AddStringToObject(object, "modelName", data.modelName);   // CPU model name
+    cJSON_AddNumberToObject(object, "CPUUsage", data.CPUUsage);     // Current CPU usage percentage
+    cJSON_AddNumberToObject(object, "CPUSpeed", data.CPUSpeed);     // Clock speed (MHz)
+    cJSON_AddNumberToObject(object, "CPUProcesses", data.CPUProcesses); // Number of processes
+    cJSON_AddNumberToObject(object, "CPUThreads", data.CPUThreads); // Number of threads
 
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"CPU-data\",\"data\":%.1f}", data);
+    // serialize object to a formatted JSON string
+    char *jsonObject = cJSON_Print(object);
 
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
+    // return heap-allocated JSON string
+    return jsonObject;
 }
 
-char *buildDiskJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
+char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
+    // create a JSON array for all disks
+    cJSON *arrayOfObjects = cJSON_CreateArray();
 
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
+    for (int i = 0; i < numberOfDisks; i++) {
+        // Create a JSON object per disk
+        cJSON *object = cJSON_CreateObject();
+
+        // Store the information gathered in getSystemMetrics.c in the JSON object
+        cJSON_AddStringToObject(object, "path", data[i].path);      // Drive path (e.g., "C:\\")
+        cJSON_AddStringToObject(object, "type", data[i].type);      // Disk type ("SSD" or "HDD")
+        cJSON_AddNumberToObject(object, "freeBytes", data[i].freeDiskSpace.QuadPart);   // Free bytes available
+        cJSON_AddNumberToObject(object, "totalBytes", data[i].totalDiskSpace.QuadPart); // Total bytes on drive
+        cJSON_AddNumberToObject(object, "userFree", data[i].userFree.QuadPart);         // User-available bytes
+        cJSON_AddNumberToObject(object, "readBps", data[i].readSpeed);   // Read throughput in B/s
+        cJSON_AddNumberToObject(object, "writeBps", data[i].writeSpeed); // Write throughput in B/s
+
+        // Append this disk object to the array
+        cJSON_AddItemToArray(arrayOfObjects, object);
     }
 
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"Disk-data\",\"data\":%.1f}", data);
+    // serialize the array to a formatted JSON string
+    char *jsonObject = cJSON_Print(arrayOfObjects);
 
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
+    // return heap-allocated JSON string
+    return jsonObject;
 }
 
-char *buildMemoryPercentJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
+char *buildMemoryJSON(MemoryInfo data) {
+    // Create a new JSON object
+    cJSON *object = cJSON_CreateObject();
 
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
-    }
+    // Store the information gathered in getSystemMetrics.c in the JSON object
+    cJSON_AddNumberToObject(object, "totalPhysical", data.totalPhysical);          // total RAM in bytes
+    cJSON_AddNumberToObject(object, "totalAvailablePhysical", data.totalAvailablePhysical); // available RAM
+    cJSON_AddNumberToObject(object, "usedPhysical", data.usedPhysical);            // used RAM in bytes
+    cJSON_AddNumberToObject(object, "percentageUsed", data.percentageUsed);        // RAM usage percentage
 
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"Memory-data\",\"data\":%.1f}", data);
+    // serialize object to a formatted JSON string
+    char *jsonObject = cJSON_Print(object);
 
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
+    // return heap-allocated JSON string
+    return jsonObject;
 }
 
-char *buildTotalMemoryJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
 
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
-    }
-
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"Memory-total\",\"data\":%.1f}", data);
-
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
-}
-
-char *buildTotalAvailableMemoryJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
-
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
-    }
-
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"Memory-total-available\",\"data\":%.1f}", data);
-
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
-}
-
-char *buildUsedMemoryJSON(double data) {
-    char *result = (char *)malloc(35); // allocate space on the heap for the JSON object
-
-    if (result == NULL) { // Check if memory has been allocated.
-        printf("Memory has not been allocated");
-    } else {
-        printf("Memory has succesfully been allocated");
-    }
-
-    // Place the JSON object in the allocated memory
-    sprintf(result, "{\"type\":\"Memory-used\",\"data\":%.1f}", data);
-
-    // Print the JSON object
-    printf("%s", result);
-
-    // Return the JSON object
-    return result;
-}

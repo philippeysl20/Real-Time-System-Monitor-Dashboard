@@ -2,20 +2,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h> // For general system info, disk info
-#include <pdh.h>     // For CPU usage
-#include <psapi.h>   // For memory info
+#include <windows.h>
+#include <pdh.h>
 #include "getSystemMetrics.h"
 #include "buildJSON.c"
 #include "InfoStructs.h"
+#include "GetCPUModelName.h"
 
 // Link libraries
 #pragma comment (lib, "pdh.lib")
-#pragma comment (lib, "psapi.lib")
 
-CPUInfo *getCPUUsage() {
-    // Get CPU usage using the libraries
-    PDH_HQUERY cpuUsageQuery; // Initialize where the output and query should be stored
+char *getCPUUsage() {
+    // Declare the struct that will contain the metrics gathered
+    CPUInfo procInfo;
+
+    // Extract the name of the CPU for display on the client-side
+    char* modelName = getCPUModelName();
+
+    // Store the name extracted in the struct
+    strcpy(procInfo.modelName, modelName);
+
+    // Initialize where the output and query should be stored
+    PDH_HQUERY cpuUsageQuery;
 
     // This will decide where we will be collecting data from (NULL meaning live data collection), the 0 means no custom
     // user data will be attached to the output. Third parameter decides where the query and output is stored.
@@ -28,70 +36,123 @@ CPUInfo *getCPUUsage() {
     PdhAddCounter(cpuUsageQuery, L"\\Processor(_Total)\\% Processor Time", 0, &cpuUsageCounter);
 
     // Capture the current performance counter values
-    PdhCollectQueryData(cpuUsageQuery); // First call is to initialize
-    Sleep(1000); // Wait 1000 milliseconds
-    PdhCollectQueryData(cpuUsageQuery); // second call to get updated data
+    // First call is to initialize
+    PdhCollectQueryData(cpuUsageQuery);
+
+    // Wait 1000 milliseconds
+    Sleep(1000);
+
+    // second call to get updated data
+    PdhCollectQueryData(cpuUsageQuery);
 
     // Retrieve the latest value for a counter in a readable format
-    PDH_FMT_COUNTERVALUE cpuUsage; // Struct which will hold the result
+    // Struct which will hold the result
+    PDH_FMT_COUNTERVALUE cpuUsage;
 
-    PdhGetFormattedCounterValue(cpuUsageQuery, PDH_FMT_DOUBLE, NULL, &cpuUsage); // Retrieval of values
+    // Retrieval of values
+    PdhGetFormattedCounterValue(cpuUsageQuery, PDH_FMT_DOUBLE, NULL, &cpuUsage);
 
-    // Initialize a variable to hold the values gathered
-    double gatheredCPUData = cpuUsage.doubleValue;
+    // Store the values gathered in the struct
+    procInfo.CPUUsage = cpuUsage.doubleValue;
 
     // Build the JSON using the gathered CPU data
-    char *jsonStringCPU = buildCPUJSON(gatheredCPUData);
+    char *jsonObject = buildCPUJSON(procInfo);
 
     // Return the final result
-    return jsonStringCPU;
+    return jsonObject;
 }
 
-MemoryInfo *getMemoryUsage(char **jsonStringMemoryPercentage, char **jsonStringMemoryTotal, char **jsonStringMemoryTotalAvailable, char **jsonStringMemoryUsed) {
-    MEMORYSTATUSEX memStatus;
-    MemoryInfo memInfo;
+char *getDiskUsage() {
+    int size = GetLogicalDriveStrings(0, NULL); // determine how many characters are needed for all drive strings
+    char *paths = (char *)malloc(size);                    // allocate a buffer of that size
+    GetLogicalDriveStrings(size, paths);                   // populate the buffer with each drive root (e.g. "C:\\", "D:\\")
 
+    // Count how many drives a user has
+    int numberOfDrives = 0;
+    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1)
+        numberOfDrives++;
+
+    // Allocate an array to hold a struct containing information for each drive
+    DriveInfo *diskInfos = malloc(sizeof(DriveInfo) * numberOfDrives);
+
+    int index = 0; // Use to iterate over drives when extracting info.
+
+    // Initialize where the output and query should be stored
+    PDH_HQUERY diskIOQuery;
+
+    // Open the query
+    PdhOpenQuery(NULL, 0, &diskIOQuery);
+
+    // Initialize variables that will receive the counter handle
+    PDH_HCOUNTER readCounter;
+    PDH_HCOUNTER writeCounter;
+
+    // Add specific performance counters to the query
+    PdhAddCounter(diskIOQuery, L"\\PhysicalDisk(_Total)\\Disk Read Bytes/sec", 0, &readCounter);
+    PdhAddCounter(diskIOQuery, L"\\PhysicalDisk(_Total)\\Disk Write Bytes/sec", 0, &writeCounter);
+
+    // First call is to initialize
+    PdhCollectQueryData(readCounter);
+    PdhCollectQueryData(writeCounter);
+
+    // Wait 1000 milliseconds
+    Sleep(1000);
+
+    // second call to get updated data
+    PdhCollectQueryData(readCounter); // second call to get updated data
+    PdhCollectQueryData(writeCounter);
+    // Structs which will hold the result
+    PDH_FMT_COUNTERVALUE diskInput;
+    PDH_FMT_COUNTERVALUE diskOutput;
+
+    // Extract the values
+    PdhGetFormattedCounterValue(diskIOQuery, PDH_FMT_DOUBLE, NULL, &diskInput);
+    PdhGetFormattedCounterValue(diskIOQuery, PDH_FMT_DOUBLE, NULL, &diskOutput);
+
+    // Iterate over the disks and store the values in the array of structs
+    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1) {
+        // Path/name of the disk
+        strcpy(diskInfos[index].path, tempPath);
+        // Free disk space, total space, user free space, read and write speed extracted and stored in the struct
+        GetDiskFreeSpaceEx(tempPath,
+            &diskInfos[index].freeDiskSpace,
+            &diskInfos[index].totalDiskSpace,
+            &diskInfos[index].userFree);
+        diskInfos[index].readSpeed = diskInput.doubleValue;
+        diskInfos[index].writeSpeed = diskOutput.doubleValue;
+
+        index++;
+    }
+
+    // Build the array of JSON objects
+    char *jsonObject = buildDiskJSON(diskInfos, numberOfDrives);
+
+    // Return the array of objects
+    return jsonObject;
+}
+
+char *getMemoryUsage() {
+    MEMORYSTATUSEX memStatus; // Windows struct for detailed memory info
+    MemoryInfo memInfo;       // Your own struct to hold processed memory data
+
+    // Must set size before calling the API
     memStatus.dwLength = sizeof(memStatus);
 
+    // Store the current RAM usage in memStatus
     GlobalMemoryStatusEx(&memStatus);
 
-    // Initialize a variable to hold the values gathered
+    // Store the values in memStatus
     memInfo.totalPhysical = (double)memStatus.ullTotalPhys / 1073741824.0;
     memInfo.totalAvailablePhysical = (double)memStatus.ullAvailPhys / 1073741824.0;
     memInfo.usedPhysical = ((double)(memStatus.ullTotalPhys - memStatus.ullAvailPhys)) / 1073741824.0;
     memInfo.percentageUsed = memStatus.dwMemoryLoad;
 
     // Build the JSON using the gathered memory data
-    *jsonStringMemoryPercentage = buildMemoryPercentJSON(memInfo.percentageUsed);
-    *jsonStringMemoryTotal = buildTotalMemoryJSON(memInfo.totalPhysical);
-    *jsonStringMemoryTotalAvailable = buildTotalAvailableMemoryJSON(memInfo.totalAvailablePhysical);
-    *jsonStringMemoryUsed = buildUsedMemoryJSON(memInfo.usedPhysical);
+    char *jsonObject = buildMemoryJSON(memInfo);
+
+    // Return the Object
+    return jsonObject;
 }
-
-DriveInfo *getDiskUsage() {
-    int size = GetLogicalDriveStrings(0, NULL);
-    char *paths = (char *)malloc(size);
-    GetLogicalDriveStrings(size, paths);
-
-    int numberOfDrives = 0;
-    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1)
-        numberOfDrives++;
-
-    DriveInfo *diskInfos = malloc(sizeof(DriveInfo) * numberOfDrives);
-
-    int index = 0; // Use to iterate over drives when extracting info.
-    for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1) {
-        strcpy(diskInfos[index].path, tempPath);
-
-        GetDiskFreeSpaceEx(paths,
-            &diskInfos[index].freeDiskSpace,
-            &diskInfos[index].totalDiskSpace,
-            &diskInfos[index].userFree);
-        index++;
-    }
-
-}
-
 
 #elif defined(__APPLE__)
 #include <stdio.h>
@@ -101,6 +162,8 @@ DriveInfo *getDiskUsage() {
 #include <mach/mach.h>
 #include "getSystemMetrics.h"
 #include "buildJSON.c"
+#include "InfoStructs.h"
+#include "GetCPUModelName.h"
 
 char *getCPUUsage() {
     // Get CPU usage using the libraries
@@ -137,6 +200,8 @@ char *getDiskUsage() {
 #include <sys/sysinfo.h>
 #include "getSystemMetrics.h"
 #include "buildJSON.c"
+#include "InfoStructs.h"
+#include "GetCPUModelName.h"
 
 char *getCPUUsage() {
     // Get CPU usage using the libraries

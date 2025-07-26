@@ -1,16 +1,10 @@
 #ifndef BUILDJSON_H
 #define BUILDJSON_H
 
-char *buildCPUJSON(double data);
+char *buildCPUJSON(CPUInfo data);
 
-char *buildDiskJSON(double data);
+char *buildDiskJSON(DriveInfo *data, int numberOfDisks);
 
-char *buildMemoryPercentJSON(double data);
-
-char *buildTotalMemoryJSON(double data);
-
-char *buildTotalAvailableMemoryJSON(double data);
-
-char *buildUsedMemoryJSON(double data);
+char *buildMemoryJSON(MemoryInfo data);
 
 #endif //BUILDJSON_H

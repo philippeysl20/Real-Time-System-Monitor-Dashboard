@@ -80,7 +80,14 @@ build cmake_object_order_depends_target_getSystemMetrics: phony || .
 build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c || cmake_object_order_depends_target_getSystemMetrics
   DEP_FILE = src\backend\CMakeFiles\getSystemMetrics.dir\getSystemMetrics.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries
+  OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
+
+build src/backend/CMakeFiles/getSystemMetrics.dir/GetCPUModelName.c.obj: C_COMPILER__getSystemMetrics_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/GetCPUModelName.c || cmake_object_order_depends_target_getSystemMetrics
+  DEP_FILE = src\backend\CMakeFiles\getSystemMetrics.dir\GetCPUModelName.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries
   OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
 
@@ -92,7 +99,7 @@ build src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj: C_COMP
 #############################################
 # Link the static library src\backend\libgetSystemMetrics.a
 
-build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj
+build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetrics_Debug src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj src/backend/CMakeFiles/getSystemMetrics.dir/GetCPUModelName.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src\backend\CMakeFiles\getSystemMetrics.dir
   POST_BUILD = cd .
@@ -107,12 +114,12 @@ build src/backend/libgetSystemMetrics.a: C_STATIC_LIBRARY_LINKER__getSystemMetri
 #############################################
 # Order-only phony target for webSocketEventHandling
 
-build cmake_object_order_depends_target_webSocketEventHandling: phony || .
+build cmake_object_order_depends_target_webSocketEventHandling: phony || cmake_object_order_depends_target_getSystemMetrics
 
 build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj: C_COMPILER__webSocketEventHandling_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/webSocketEventHandling.c || cmake_object_order_depends_target_webSocketEventHandling
   DEP_FILE = src\backend\CMakeFiles\webSocketEventHandling.dir\webSocketEventHandling.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/globals.h
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries
   OBJECT_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
 
@@ -124,7 +131,7 @@ build src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c
 #############################################
 # Link the static library src\backend\libwebSocketEventHandling.a
 
-build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocketEventHandling_Debug src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj
+build src/backend/libwebSocketEventHandling.a: C_STATIC_LIBRARY_LINKER__webSocketEventHandling_Debug src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj || src/backend/libgetSystemMetrics.a
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = src\backend\CMakeFiles\webSocketEventHandling.dir
   POST_BUILD = cd .
@@ -144,6 +151,7 @@ build cmake_object_order_depends_target_buildJSON: phony || .
 build src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj: C_COMPILER__buildJSON_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c || cmake_object_order_depends_target_buildJSON
   DEP_FILE = src\backend\CMakeFiles\buildJSON.dir\buildJSON.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries
   OBJECT_DIR = src\backend\CMakeFiles\buildJSON.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\buildJSON.dir
 
@@ -170,21 +178,35 @@ build src/backend/libbuildJSON.a: C_STATIC_LIBRARY_LINKER__buildJSON_Debug src/b
 #############################################
 # Order-only phony target for monitor
 
-build cmake_object_order_depends_target_monitor: phony || cmake_object_order_depends_target_getSystemMetrics
+build cmake_object_order_depends_target_monitor: phony || cmake_object_order_depends_target_buildJSON cmake_object_order_depends_target_getSystemMetrics cmake_object_order_depends_target_webSocketEventHandling
 
 build src/backend/CMakeFiles/monitor.dir/main.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/main.c || cmake_object_order_depends_target_monitor
   DEP_FILE = src\backend\CMakeFiles\monitor.dir\main.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend
   OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
   OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir
 
-build src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/Mongoose/mongoose.c || cmake_object_order_depends_target_monitor
-  DEP_FILE = src\backend\CMakeFiles\monitor.dir\Mongoose\mongoose.c.obj.d
+build src/backend/CMakeFiles/monitor.dir/ExternalLibraries/mongoose.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries/mongoose.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\ExternalLibraries\mongoose.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/mongoose -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/DiskInfoStruct.h
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend
   OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
-  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\Mongoose
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\ExternalLibraries
+
+build src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries/cJSON.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\ExternalLibraries\cJSON.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir\ExternalLibraries
+
+build src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj: C_COMPILER__monitor_unscanned_Debug C$:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/GetCPUModelName.c || cmake_object_order_depends_target_monitor
+  DEP_FILE = src\backend\CMakeFiles\monitor.dir\GetCPUModelName.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IC:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend
+  OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
+  OBJECT_FILE_DIR = src\backend\CMakeFiles\monitor.dir
 
 
 # =============================================================================
@@ -194,9 +216,9 @@ build src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj: C_COMPILER__mo
 #############################################
 # Link the executable src\backend\monitor.exe
 
-build src/backend/monitor.exe: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeFiles/monitor.dir/main.c.obj src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj | src/backend/libgetSystemMetrics.a || src/backend/libgetSystemMetrics.a
+build src/backend/monitor.exe: C_EXECUTABLE_LINKER__monitor_Debug src/backend/CMakeFiles/monitor.dir/main.c.obj src/backend/CMakeFiles/monitor.dir/ExternalLibraries/mongoose.c.obj src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj | src/backend/libgetSystemMetrics.a src/backend/libbuildJSON.a src/backend/libwebSocketEventHandling.a src/backend/libgetSystemMetrics.a || src/backend/libbuildJSON.a src/backend/libgetSystemMetrics.a src/backend/libwebSocketEventHandling.a
   FLAGS = -g
-  LINK_LIBRARIES = src/backend/libgetSystemMetrics.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = src/backend/libgetSystemMetrics.a  src/backend/libbuildJSON.a  src/backend/libwebSocketEventHandling.a  -lws2_32  src/backend/libgetSystemMetrics.a  -lpdh  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\backend\CMakeFiles\monitor.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

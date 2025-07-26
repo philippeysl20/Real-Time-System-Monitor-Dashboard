@@ -20,12 +20,15 @@ int main(void) {
     // and can be set as NULL.
     mg_http_listen(&mgr, WebSocket, webSocketEventHandler, NULL); // Begin listening on the URL
 
+    // set the loop control flag to true
     running = 1;
-    while (running) {
+    while (running) { // process network/events for up to 1000 ms
         mg_mgr_poll(&mgr, 1000);
     }
 
+    // clean up and free Mongoose manager resources
     mg_mgr_free(&mgr);
 
+    // exit successfully
     return 0;
 }
