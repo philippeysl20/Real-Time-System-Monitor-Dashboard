@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "src/backend/monitor.exe"
-		},
-		{
-			"path" : "src/backend/monitor.pdb"
+			"path" : "src/backend/monitor"
 		}
 	],
 	"backtrace" : 1,
@@ -39,18 +36,6 @@
 				"parent" : 0
 			},
 			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 65,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 40,
-				"parent" : 0
-			},
-			{
 				"command" : 2,
 				"file" : 0,
 				"line" : 52,
@@ -64,18 +49,18 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 5,
-					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries"
+					"backtrace" : 3,
+					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries"
 				},
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/phili/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
+					"path" : "/Users/philippebourrachot/Documents/GitHub/Real-Time-System-Monitor-Dashboard/src/backend"
 				}
 			],
 			"language" : "C",
@@ -126,43 +111,24 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "src\\backend\\libgetSystemMetrics.a",
+				"fragment" : "src/backend/libbuildJSON.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "src\\backend\\libbuildJSON.a",
+				"fragment" : "src/backend/libwebSocketEventHandling.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "src\\backend\\libwebSocketEventHandling.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lws2_32",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "src\\backend\\libgetSystemMetrics.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 4,
-				"fragment" : "-lpdh",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"fragment" : "src/backend/libgetSystemMetrics.a",
 				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "monitor",
-	"nameOnDisk" : "monitor.exe",
+	"nameOnDisk" : "monitor",
 	"paths" : 
 	{
 		"build" : "src/backend",
