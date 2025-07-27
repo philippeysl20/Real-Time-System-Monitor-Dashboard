@@ -1,16 +1,16 @@
 # ninja log v6
 6	1383	7731214725332741	src/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	f388332452833d86
-73	1670	7751992760095776	src/backend/CMakeFiles/monitor.dir/main.c.obj	3d7d5be99ceb92e5
 65	2093	7751694427967927	src/backend/CMakeFiles/monitor.dir/Mongoose/mongoose.c.obj	c68ecf093ba6393e
+1670	2954	7751992776066976	src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj	3260aef38d9628aa
+73	1670	7751992760095776	src/backend/CMakeFiles/monitor.dir/main.c.obj	3d7d5be99ceb92e5
 2954	3378	7751992788912891	src/backend/monitor.exe	b9e2e53df4623dd6
+48	613	7731211867934950	src/CMakeFiles/monitor.dir/main.c.obj	fab0da35d9ed0a13
 1520	1715	7731214740467983	src/monitor.exe	64a25a7011ce53fb
 2227	2396	7751992781639963	src/backend/libbuildJSON.a	2888fd70caa21364
-48	613	7731211867934950	src/CMakeFiles/monitor.dir/main.c.obj	fab0da35d9ed0a13
-1670	2954	7751992776066976	src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj	3260aef38d9628aa
-5	16	7751992755519163	clean	808cc43b64b982b1
-3	310	1753579738573085348	build.ninja	56ccc50f8dced94e
-1646	2045	7751992775837564	src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj	7373c909063bca2c
 2251	2385	7751992781879323	src/backend/libgetSystemMetrics.a	1b2aa9d03d9439e0
+5	16	7751992755519163	clean	808cc43b64b982b1
+3	310	7753593282094050	build.ninja	56ccc50f8dced94e
+1646	2045	7751992775837564	src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj	7373c909063bca2c
 83	2637	7751992760195507	src/backend/CMakeFiles/monitor.dir/ExternalLibraries/mongoose.c.obj	ed32e4b603275150
 61	1645	7751992759976104	src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj	16135559b2d9337
 1384	1520	7731214739103499	src/libgetSystemMetrics.a	e79a52348306bd85
