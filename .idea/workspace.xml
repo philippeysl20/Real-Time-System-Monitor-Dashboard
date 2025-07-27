@@ -26,36 +26,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/backend/ExternalLibraries/cJSON.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/ExternalLibraries/cJSON.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/GetCPUModelName.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backend/GetCPUModelName.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-833acd2e812074e6c691.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2025-07-24T23-39-00-0784.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-buildJSON-Debug-8c9fee2cbf12016b28b7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-getSystemMetrics-Debug-a60f8b9bc5976860d5a8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-monitor-Debug-af48adcf182c769693f5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-webSocketEventHandling-Debug-011f562a0c4a1c4da560.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/BuildJSON.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/BuildJSON.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/InfoStructs.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/InfoStructs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Mongoose/mongoose.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ExternalLibraries/mongoose.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Mongoose/mongoose.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/ExternalLibraries/mongoose.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/buildJSON.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/buildJSON.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/getSystemMetrics.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/globals.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/globals.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/webSocketEventHandling.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/webSocketEventHandling.h" afterDir="false" />
-    </list>
+    <list default="true" id="ee8c9dad-aa3b-469e-b35f-48389e36088b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +172,7 @@
       <workItem from="1753464391334" duration="1689000" />
       <workItem from="1753466109757" duration="49000" />
       <workItem from="1753466168262" duration="956000" />
-      <workItem from="1753478340968" duration="12340000" />
+      <workItem from="1753478340968" duration="12602000" />
     </task>
     <servers />
   </component>
