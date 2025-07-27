@@ -159,7 +159,12 @@ char *getMemoryUsage() {
 #include <stdlib.h>
 #include <string.h>
 #include <sys/sysctl.h>
+#include <sys/mount.h>
 #include <mach/mach.h>
+#include <CoreFoundation/CoreFoundation.h>
+#include <IOKit/IOKitLib.h>
+#include <IOKit/IOBSD.h>
+#include <IOKit/storage/IOMedia.h>
 #include "getSystemMetrics.h"
 #include "buildJSON.c"
 #include "InfoStructs.h"
@@ -184,12 +189,15 @@ char *getMemoryUsage() {
 }
 
 char *getDiskUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
+    DriveInfo *diskInfo;
+    int numberOfDrives;
+
+    struct statfs *paths;
+
+    getmntinfo(&paths, MNT_NOWAIT);
 
 
-    // Build the JSON using the gathered usage data
-    return buildDiskJSON(placeholderForGatheredData);
+    char *jsonObject = buildDiskJSON(diskInfo, numberOfDrives);
 }
 
 #elif defined(__linux__)

@@ -1,41 +1,48 @@
-#ifndef InfoStructs.h
-#define InfoStructs.h
-#define MAX_DRIVE_PATH MAX_PATH // from <windows.h>.
+#ifndef INFOSTRUCTS_H
+#define INFOSTRUCTS_H
 
-#include <windows.h>
+#if defined(_WIN32)
+    #include <windows.h>
+    #define MAX_DRIVE_PATH MAX_PATH
 
-// Struct to hold information about the CPU
+    typedef struct {
+        char path[MAX_DRIVE_PATH];     // e.g. "C:\\"
+        char type[3];                  // SSD or HDD
+        ULARGE_INTEGER freeDiskSpace;  // bytes available to this user
+        ULARGE_INTEGER totalDiskSpace; // total volume size
+        ULARGE_INTEGER userFree;       // all free bytes on volume
+        double readSpeed;              // In B/s
+        double writeSpeed;             // In B/s
+    } DriveInfo;
+
+#elif defined(__APPLE__) || defined(__linux__)
+#define MAX_DRIVE_PATH 1024
+
 typedef struct {
-    char modelName[256];
-    double CPUUsage;                      // In percent
-    double CPUSpeed;                      // in GHz
-    int CPUProcesses;
-    int CPUThreads;
-
-} CPUInfo;
-
-// Struct to hold information about the RAM usage and memory
-typedef struct {
-    double totalPhysical;                 // In GB
-    double totalAvailablePhysical;        // In GB
-    double usedPhysical;                  // In GB
-    double percentageUsed;                // In percent
-
-} MemoryInfo;
-
-// Struct to hold information about the drives
-typedef struct {
-    char           path[MAX_DRIVE_PATH];  // e.g. "C:\\"
-    char type[3];                         // SSD or HDD
-    ULARGE_INTEGER freeDiskSpace;         // bytes available to this user
-    ULARGE_INTEGER totalDiskSpace;        // total volume size
-    ULARGE_INTEGER userFree;              // all free bytes on volume
-    double readSpeed;                     // In B/s
-    double writeSpeed;                    // In B/s
-
-
+    char path[MAX_DRIVE_PATH];    // e.g. "/"
+    char driveType[3];            // SSD or HDD
+    double freeSpace;             // bytes
+    double totalSpace;            // bytes
+    double availableSpace;        // bytes
+    double readSpeed;             // In B/s
+    double writeSpeed;            // In B/s
 } DriveInfo;
 
+#endif
 
+typedef struct {
+    char modelName[256];
+    double CPUUsage;
+    double CPUSpeed;
+    int CPUProcesses;
+    int CPUThreads;
+} CPUInfo;
 
-#endif //DISKINFOSTRUCT_H
+typedef struct {
+    double totalPhysical;
+    double totalAvailablePhysical;
+    double usedPhysical;
+    double percentageUsed;
+} MemoryInfo;
+
+#endif // INFOSTRUCTS_H
