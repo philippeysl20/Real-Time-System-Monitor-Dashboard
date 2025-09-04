@@ -14,13 +14,13 @@
 
 char *getCPUUsage() {
     // Declare the struct that will contain the metrics gathered
-    CPUInfo procInfo;
+    CPUInfo processorInfo;
 
     // Extract the name of the CPU for display on the client-side
     char* modelName = getCPUModelName();
 
     // Store the name extracted in the struct
-    strcpy(procInfo.modelName, modelName);
+    strcpy(processorInfo.modelName, modelName);
 
     // Initialize where the output and query should be stored
     PDH_HQUERY cpuUsageQuery;
@@ -172,20 +172,25 @@ char *getMemoryUsage() {
 
 char *getCPUUsage() {
     // Get CPU usage using the libraries
-    double placeholderForGatheredData;
+    CPUInfo placeholderForGatheredData;
 
 
     // Build the JSON using the gathered usage data
-    buildMemoryJSON(placeholderForGatheredData);
+    char *jsonObject = buildCPUJSON(placeholderForGatheredData);
+
+    // Return the object
+    return jsonObject;
 }
 
 char *getMemoryUsage() {
     // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
+    MemoryInfo memInfo;
 
     // Build the JSON using the gathered usage data
-    buildCPUJSON(placeholderForGatheredData);
+    char *jsonObject = buildMemoryJSON(memInfo);
+
+    // Return the object
+    return jsonObject;
 }
 
 char *getDiskUsage() {
@@ -198,44 +203,9 @@ char *getDiskUsage() {
 
 
     char *jsonObject = buildDiskJSON(diskInfo, numberOfDrives);
-}
 
-#elif defined(__linux__)
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/sysinfo.h>
-#include "getSystemMetrics.h"
-#include "buildJSON.c"
-#include "InfoStructs.h"
-#include "GetCPUModelName.h"
-
-char *getCPUUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    buildMemoryJSON(placeholderForGatheredData);
-}
-
-char *getMemoryUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    buildCPUJSON(placeholderForGatheredData);
-}
-
-char *getDiskUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    return buildDiskJSON(placeholderForGatheredData);
+    // Return the object
+    return jsonObject;
 }
 
 #endif

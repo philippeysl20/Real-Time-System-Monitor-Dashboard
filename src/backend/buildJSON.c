@@ -5,6 +5,38 @@
 #include "cJSON.h"
 #include "InfoStructs.h"
 
+#if defined(_WIN32)
+
+char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
+    // create a JSON array for all disks
+    cJSON *arrayOfObjects = cJSON_CreateArray();
+
+    for (int i = 0; i < numberOfDisks; i++) {
+        // Create a JSON object per disk
+        cJSON *object = cJSON_CreateObject();
+
+        // Store the information gathered in getSystemMetrics.c in the JSON object
+        cJSON_AddStringToObject(object, "path", data[i].path);      // Drive path (e.g., "C:\\")
+        cJSON_AddStringToObject(object, "type", data[i].type);      // Disk type ("SSD" or "HDD")
+        cJSON_AddNumberToObject(object, "freeBytes", data[i].freeDiskSpace.QuadPart);   // Free bytes available
+        cJSON_AddNumberToObject(object, "totalBytes", data[i].totalDiskSpace.QuadPart); // Total bytes on drive
+        cJSON_AddNumberToObject(object, "userFree", data[i].userFree.QuadPart);         // User-available bytes
+        cJSON_AddNumberToObject(object, "readBps", data[i].readSpeed);   // Read throughput in B/s
+        cJSON_AddNumberToObject(object, "writeBps", data[i].writeSpeed); // Write throughput in B/s
+
+        // Append this disk object to the array
+        cJSON_AddItemToArray(arrayOfObjects, object);
+    }
+
+    // serialize the array to a formatted JSON string
+    char *jsonObject = cJSON_Print(arrayOfObjects);
+
+    // return heap-allocated JSON string
+    return jsonObject;
+}
+
+#elif defined(__APPLE__)
+
 char *buildCPUJSON(CPUInfo data) {
     // Create a new JSON object
     cJSON *object = cJSON_CreateObject();
@@ -33,10 +65,10 @@ char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
 
         // Store the information gathered in getSystemMetrics.c in the JSON object
         cJSON_AddStringToObject(object, "path", data[i].path);      // Drive path (e.g., "C:\\")
-        cJSON_AddStringToObject(object, "type", data[i].type);      // Disk type ("SSD" or "HDD")
-        cJSON_AddNumberToObject(object, "freeBytes", data[i].freeDiskSpace.QuadPart);   // Free bytes available
-        cJSON_AddNumberToObject(object, "totalBytes", data[i].totalDiskSpace.QuadPart); // Total bytes on drive
-        cJSON_AddNumberToObject(object, "userFree", data[i].userFree.QuadPart);         // User-available bytes
+        cJSON_AddStringToObject(object, "type", data[i].driveType);      // Disk type ("SSD" or "HDD")
+        cJSON_AddNumberToObject(object, "freeBytes", data[i].freeSpace);   // Free bytes available
+        cJSON_AddNumberToObject(object, "totalBytes", data[i].totalSpace); // Total bytes on drive
+        cJSON_AddNumberToObject(object, "userFree", data[i].availableSpace);         // User-available bytes
         cJSON_AddNumberToObject(object, "readBps", data[i].readSpeed);   // Read throughput in B/s
         cJSON_AddNumberToObject(object, "writeBps", data[i].writeSpeed); // Write throughput in B/s
 
@@ -68,4 +100,4 @@ char *buildMemoryJSON(MemoryInfo data) {
     return jsonObject;
 }
 
-
+#endif

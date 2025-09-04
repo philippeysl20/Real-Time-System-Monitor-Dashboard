@@ -15,7 +15,7 @@
         double writeSpeed;             // In B/s
     } DriveInfo;
 
-#elif defined(__APPLE__) || defined(__linux__)
+#elif defined(__APPLE__)
 #define MAX_DRIVE_PATH 1024
 
 typedef struct {
