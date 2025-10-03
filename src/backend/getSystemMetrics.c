@@ -200,42 +200,4 @@ char *getDiskUsage() {
     char *jsonObject = buildDiskJSON(diskInfo, numberOfDrives);
 }
 
-#elif defined(__linux__)
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/sysinfo.h>
-#include "getSystemMetrics.h"
-#include "buildJSON.c"
-#include "InfoStructs.h"
-#include "GetCPUModelName.h"
-
-char *getCPUUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    buildMemoryJSON(placeholderForGatheredData);
-}
-
-char *getMemoryUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    buildCPUJSON(placeholderForGatheredData);
-}
-
-char *getDiskUsage() {
-    // Get CPU usage using the libraries
-    double placeholderForGatheredData;
-
-
-    // Build the JSON using the gathered usage data
-    return buildDiskJSON(placeholderForGatheredData);
-}
-
 #endif
