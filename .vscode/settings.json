@@ -1,3 +1,8 @@
 {
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "cmake.cmakePath": "C:/Program Files/CMake/bin/cmake.exe",
+    "cmake.generator": "Ninja",
+    "cmake.environment": {
+        "PATH": "C:\\msys64\\mingw64\\bin;${env:PATH}"
+    }
 }

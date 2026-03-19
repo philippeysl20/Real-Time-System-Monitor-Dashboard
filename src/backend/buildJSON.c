@@ -9,6 +9,8 @@ char *buildCPUJSON(CPUInfo data) {
     // Create a new JSON object
     cJSON *object = cJSON_CreateObject();
 
+    cJSON_AddStringToObject(object, "type", "CPU-data");
+
     // Store the information gathered in getSystemMetrics.c in the JSON object
     cJSON_AddStringToObject(object, "modelName", data.modelName);   // CPU model name
     cJSON_AddNumberToObject(object, "CPUUsage", data.CPUUsage);     // Current CPU usage percentage
@@ -24,8 +26,10 @@ char *buildCPUJSON(CPUInfo data) {
 }
 
 char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
-    // create a JSON array for all disks
+    cJSON *root = cJSON_CreateObject();
     cJSON *arrayOfObjects = cJSON_CreateArray();
+
+    cJSON_AddStringToObject(root, "type", "Disk-data");
 
     for (int i = 0; i < numberOfDisks; i++) {
         // Create a JSON object per disk
@@ -44,8 +48,10 @@ char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
         cJSON_AddItemToArray(arrayOfObjects, object);
     }
 
+    cJSON_AddItemToObject(root, "drives", arrayOfObjects);
+
     // serialize the array to a formatted JSON string
-    char *jsonObject = cJSON_Print(arrayOfObjects);
+    char *jsonObject = cJSON_Print(root);
 
     // return heap-allocated JSON string
     return jsonObject;
@@ -54,6 +60,8 @@ char *buildDiskJSON(DriveInfo *data, int numberOfDisks) {
 char *buildMemoryJSON(MemoryInfo data) {
     // Create a new JSON object
     cJSON *object = cJSON_CreateObject();
+
+    cJSON_AddStringToObject(object, "type", "Memory-data");
 
     // Store the information gathered in getSystemMetrics.c in the JSON object
     cJSON_AddNumberToObject(object, "totalPhysical", data.totalPhysical);          // total RAM in bytes

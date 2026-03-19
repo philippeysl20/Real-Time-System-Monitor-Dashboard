@@ -7,7 +7,7 @@
 
     typedef struct {
         char path[MAX_DRIVE_PATH];     // e.g. "C:\\"
-        char type[3];                  // SSD or HDD
+        char type[4];                  // SSD, HDD, etc.
         ULARGE_INTEGER freeDiskSpace;  // bytes available to this user
         ULARGE_INTEGER totalDiskSpace; // total volume size
         ULARGE_INTEGER userFree;       // all free bytes on volume
@@ -20,7 +20,7 @@
 
 typedef struct {
     char path[MAX_DRIVE_PATH];    // e.g. "/"
-    char driveType[3];            // SSD or HDD
+    char driveType[4];            // SSD, HDD, etc.
     double freeSpace;             // bytes
     double totalSpace;            // bytes
     double availableSpace;        // bytes

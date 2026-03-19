@@ -33,11 +33,12 @@ target_include_directories(buildJSON PUBLIC
 )
 
 # Link internal dependencies between your own libraries
+target_link_libraries(getSystemMetrics PRIVATE buildJSON)
 target_link_libraries(webSocketEventHandling PRIVATE getSystemMetrics)
 
 # Link getSystemMetrics directly with PDH (Windows performance counters)
 if (WIN32)
-    target_link_libraries(getSystemMetrics PRIVATE pdh)
+    target_link_libraries(getSystemMetrics PRIVATE pdh advapi32)
 endif()
 
 # Define the final executable and source files

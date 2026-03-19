@@ -3,47 +3,52 @@
 #include "string.h"
 #include "globals.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int running;
 
+static void sendMetrics(struct mg_connection *client) {
+    char *CPUData = getCPUUsage();
+    char *diskData = getDiskUsage();
+    char *memoryData = getMemoryUsage();
+
+    if (CPUData != NULL) {
+        mg_ws_send(client, CPUData, strlen(CPUData), WEBSOCKET_OP_TEXT);
+        free(CPUData);
+    }
+
+    if (diskData != NULL) {
+        mg_ws_send(client, diskData, strlen(diskData), WEBSOCKET_OP_TEXT);
+        free(diskData);
+    }
+
+    if (memoryData != NULL) {
+        mg_ws_send(client, memoryData, strlen(memoryData), WEBSOCKET_OP_TEXT);
+        free(memoryData);
+    }
+}
+
 void webSocketEventHandler(struct mg_connection *client, const int event, void *event_data) {
-    if (event == MG_EV_WS_OPEN) {
+    static unsigned long lastMetricsPushAt = 0;
+
+    if (event == MG_EV_HTTP_MSG) {
+        struct mg_http_message *message = (struct mg_http_message *) event_data;
+        mg_ws_upgrade(client, message, NULL);
+    } else if (event == MG_EV_WS_OPEN) {
         // Print an opening message to the console
         printf("WebSocket open. Client connected\n");
-
-        // Initialize a welcome message
-        char *welcomeMessage = "You have successfully been connected";
-
-        // Send the welcome message to the user
-        mg_ws_send(client, welcomeMessage, strlen(welcomeMessage), WEBSOCKET_OP_TEXT);
+        sendMetrics(client);
+        lastMetricsPushAt = mg_millis();
     } else if (event == MG_EV_WS_MSG) {
-        // Print if the client is ready to recieve messages
-        printf("Client is ready to recieve data.\n");
-        // Initialize variables to hold the data collected
-
-        // CPU variables
-        char *CPUData = getCPUUsage();
-
-        // Disk variables
-        char *diskData = getDiskUsage();
-
-        // Memory variables
-        char *memoryData = getMemoryUsage();
-
-        // Send the structs to the user
-        mg_ws_send(client, CPUData, strlen(CPUData), WEBSOCKET_OP_TEXT);
-        mg_ws_send(client, diskData, strlen(diskData), WEBSOCKET_OP_TEXT);
-        mg_ws_send(client, memoryData, strlen(memoryData), WEBSOCKET_OP_TEXT);
-
-        // Free the memory allocated on the heap that contained the structs
-        free(CPUData);
-        free(diskData);
-        free(memoryData);
-
-    } else if(event == MG_EV_CLOSE) {
-        // Set the 'running' variable to 0 which will stop the polling loop
-        running = 0;
-
+        // Accept incoming websocket messages without requiring them for updates.
+        printf("WebSocket message received\n");
+    } else if (event == MG_EV_POLL && client->is_websocket) {
+        unsigned long now = mg_millis();
+        if (now - lastMetricsPushAt >= 1000) {
+            sendMetrics(client);
+            lastMetricsPushAt = now;
+        }
+    } else if (event == MG_EV_CLOSE) {
         // Print a closing message to the console
         printf("WebSocket closed. Client disconnected\n");
     }

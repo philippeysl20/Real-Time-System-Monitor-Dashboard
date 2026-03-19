@@ -1,0 +1,26 @@
+# ninja log v7
+35	308	7956366048712976	src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj	3c7a44d09f89fec3
+38	578	7956366048748035	src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj	96883103ac9c82f1
+26	580	7956366048617561	src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj	28f8f7b00f9cfcf1
+19	583	7956366048546329	src/backend/CMakeFiles/getSystemMetrics.dir/GetCPUModelName.c.obj	f13b55d667fd2940
+29	622	7956366048647859	src/backend/CMakeFiles/monitor.dir/main.c.obj	33be87777afceb65
+22	622	7956366048587550	src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj	8cc3261059940672
+32	1090	7956366048683009	src/backend/CMakeFiles/monitor.dir/ExternalLibraries/mongoose.c.obj	94cf24cc2b77f332
+29	204	7956367571343822	src/backend/libbuildJSON.a	51ab50966768ea24
+11	524	7956367571167982	src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	33796d5599271384
+524	595	7956367576296233	src/backend/libgetSystemMetrics.a	86b10c1f1deaf46c
+595	662	7956367576997316	src/backend/libwebSocketEventHandling.a	2788c50abd04b0c0
+9	129	7956368094078667	src/backend/monitor.exe	12ae2854d9f900ab
+23	442	7956371751328271	src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj	8cc3261059940672
+2	531	7956371751126290	src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj	28f8f7b00f9cfcf1
+19	537	7956371751287723	src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	33796d5599271384
+531	605	7956371756407902	src/backend/libbuildJSON.a	51ab50966768ea24
+605	678	7956371757153031	src/backend/libgetSystemMetrics.a	86b10c1f1deaf46c
+678	744	7956371757876148	src/backend/libwebSocketEventHandling.a	2788c50abd04b0c0
+744	869	7956371758541404	src/backend/monitor.exe	12ae2854d9f900ab
+35	456	7956375781732368	src/backend/CMakeFiles/monitor.dir/main.c.obj	33be87777afceb65
+31	463	7956375781692823	src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj	8cc3261059940672
+13	564	7956375781512729	src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj	33796d5599271384
+564	638	7956375787019194	src/backend/libgetSystemMetrics.a	86b10c1f1deaf46c
+638	708	7956375787753466	src/backend/libwebSocketEventHandling.a	2788c50abd04b0c0
+708	828	7956375788463188	src/backend/monitor.exe	12ae2854d9f900ab

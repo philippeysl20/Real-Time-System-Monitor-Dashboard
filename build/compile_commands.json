@@ -1,0 +1,50 @@
+[
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -g -std=gnu11 -o src\\backend\\CMakeFiles\\getSystemMetrics.dir\\getSystemMetrics.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\getSystemMetrics.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/getSystemMetrics.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/getSystemMetrics.dir/getSystemMetrics.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -g -std=gnu11 -o src\\backend\\CMakeFiles\\getSystemMetrics.dir\\GetCPUModelName.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\GetCPUModelName.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/GetCPUModelName.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/getSystemMetrics.dir/GetCPUModelName.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -g -std=gnu11 -o src\\backend\\CMakeFiles\\webSocketEventHandling.dir\\webSocketEventHandling.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\webSocketEventHandling.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/webSocketEventHandling.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/webSocketEventHandling.dir/webSocketEventHandling.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -g -std=gnu11 -o src\\backend\\CMakeFiles\\buildJSON.dir\\buildJSON.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\buildJSON.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/buildJSON.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/buildJSON.dir/buildJSON.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -g -std=gnu11 -o src\\backend\\CMakeFiles\\monitor.dir\\main.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\main.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/main.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/monitor.dir/main.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -g -std=gnu11 -o src\\backend\\CMakeFiles\\monitor.dir\\ExternalLibraries\\mongoose.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\ExternalLibraries\\mongoose.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries/mongoose.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/monitor.dir/ExternalLibraries/mongoose.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -g -std=gnu11 -o src\\backend\\CMakeFiles\\monitor.dir\\ExternalLibraries\\cJSON.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\ExternalLibraries\\cJSON.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries/cJSON.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/monitor.dir/ExternalLibraries/cJSON.c.obj"
+},
+{
+  "directory": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/ExternalLibraries -IG:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend -g -std=gnu11 -o src\\backend\\CMakeFiles\\monitor.dir\\GetCPUModelName.c.obj -c G:\\GitHub-Repos\\Projects\\Real-Time-System-Monitor-Dashboard\\src\\backend\\GetCPUModelName.c",
+  "file": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/src/backend/GetCPUModelName.c",
+  "output": "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/monitor.dir/GetCPUModelName.c.obj"
+}
+]

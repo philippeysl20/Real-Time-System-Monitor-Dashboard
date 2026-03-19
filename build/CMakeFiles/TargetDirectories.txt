@@ -1,0 +1,8 @@
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/CMakeFiles/edit_cache.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/CMakeFiles/rebuild_cache.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/getSystemMetrics.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/webSocketEventHandling.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/buildJSON.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/monitor.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/edit_cache.dir
+G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/CMakeFiles/rebuild_cache.dir
