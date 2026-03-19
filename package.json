@@ -8,9 +8,11 @@
     "dev": "concurrently \"npm run dev-react\" \"wait-on http://localhost:5173 && electron .\"",
     "dev-react": "cd src/frontend && vite",
     "build-react": "cd src/frontend && vite build",
+    "build-backend": "cmake --build build",
+    "build-app": "npm run build-backend && npm run build-react",
     "package-mac": "electron-packager . RealTimeMonitor --platform=darwin --arch=x64 --out=dist --overwrite",
     "package-linux": "electron-packager . RealTimeMonitor --platform=linux --arch=x64 --out=dist --overwrite",
-    "package-win": "electron-packager . RealTimeMonitor --platform=win32 --arch=x64 --out=dist --overwrite",
+    "package-win": "npm run build-app && electron-packager . RealTimeMonitor --platform=win32 --arch=x64 --out=dist --overwrite",
     "package-all": "electron-packager . RealTimeMonitor --platform=darwin,linux,win32 --arch=x64 --out=dist --overwrite"
   },
   "dependencies": {

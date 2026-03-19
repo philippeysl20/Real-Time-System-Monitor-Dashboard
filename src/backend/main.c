@@ -22,8 +22,8 @@ int main(void) {
 
     // set the loop control flag to true
     running = 1;
-    while (running) { // process network/events for up to 1000 ms
-        mg_mgr_poll(&mgr, 1000);
+    while (running) { // process network/events for up to 100 ms
+        mg_mgr_poll(&mgr, 100);
     }
 
     // clean up and free Mongoose manager resources

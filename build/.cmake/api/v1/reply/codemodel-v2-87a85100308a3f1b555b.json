@@ -1,0 +1,104 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : [],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src/backend",
+					"jsonFile" : "directory-src.backend-Debug-eb8a22b4eb7301a0fcd8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.29"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/backend",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "Real-Time-System-Monitor-Dashboard",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "buildJSON::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-buildJSON-Debug-8a25916902cde6db1827.json",
+					"name" : "buildJSON",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "getSystemMetrics::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-getSystemMetrics-Debug-1e59cd16f28224b132c6.json",
+					"name" : "getSystemMetrics",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "monitor::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-monitor-Debug-bc510f8e5a275fd5cf04.json",
+					"name" : "monitor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "webSocketEventHandling::@525b47d26c118ac1ce89",
+					"jsonFile" : "target-webSocketEventHandling-Debug-16984e3d605862030d55.json",
+					"name" : "webSocketEventHandling",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build",
+		"source" : "G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

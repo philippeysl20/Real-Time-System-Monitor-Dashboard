@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/cmake_install.cmake",
+		"G:/GitHub-Repos/Projects/Real-Time-System-Monitor-Dashboard/build/src/backend/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

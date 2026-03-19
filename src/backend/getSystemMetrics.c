@@ -4,13 +4,102 @@
 #include <string.h>
 #include <windows.h>
 #include <pdh.h>
+#include <tlhelp32.h>
 #include "getSystemMetrics.h"
-#include "buildJSON.c"
+#include "BuildJSON.h"
 #include "InfoStructs.h"
 #include "GetCPUModelName.h"
 
 // Link libraries
 #pragma comment (lib, "pdh.lib")
+
+static ULONGLONG fileTimeToUInt64(const FILETIME *time) {
+    return ((ULONGLONG) time->dwHighDateTime << 32) | time->dwLowDateTime;
+}
+
+static double sampleCPUUsage(void) {
+    static int hasPreviousSample = 0;
+    static ULONGLONG previousIdle = 0;
+    static ULONGLONG previousKernel = 0;
+    static ULONGLONG previousUser = 0;
+
+    FILETIME idleTime;
+    FILETIME kernelTime;
+    FILETIME userTime;
+
+    if (!GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
+        return 0.0;
+    }
+
+    const ULONGLONG idle = fileTimeToUInt64(&idleTime);
+    const ULONGLONG kernel = fileTimeToUInt64(&kernelTime);
+    const ULONGLONG user = fileTimeToUInt64(&userTime);
+
+    if (!hasPreviousSample) {
+        previousIdle = idle;
+        previousKernel = kernel;
+        previousUser = user;
+        hasPreviousSample = 1;
+        return 0.0;
+    }
+
+    const ULONGLONG idleDelta = idle - previousIdle;
+    const ULONGLONG kernelDelta = kernel - previousKernel;
+    const ULONGLONG userDelta = user - previousUser;
+    const ULONGLONG totalDelta = kernelDelta + userDelta;
+
+    previousIdle = idle;
+    previousKernel = kernel;
+    previousUser = user;
+
+    if (totalDelta == 0) {
+        return 0.0;
+    }
+
+    return ((double) (totalDelta - idleDelta) * 100.0) / (double) totalDelta;
+}
+
+static void collectDiskThroughput(double *readBps, double *writeBps) {
+    static int queryInitialized = 0;
+    static PDH_HQUERY diskIOQuery = NULL;
+    static PDH_HCOUNTER readCounter = NULL;
+    static PDH_HCOUNTER writeCounter = NULL;
+
+    *readBps = 0.0;
+    *writeBps = 0.0;
+
+    if (!queryInitialized) {
+        if (PdhOpenQuery(NULL, 0, &diskIOQuery) != ERROR_SUCCESS) {
+            return;
+        }
+
+        if (PdhAddCounter(diskIOQuery, "\\PhysicalDisk(_Total)\\Disk Read Bytes/sec", 0, &readCounter) != ERROR_SUCCESS ||
+            PdhAddCounter(diskIOQuery, "\\PhysicalDisk(_Total)\\Disk Write Bytes/sec", 0, &writeCounter) != ERROR_SUCCESS) {
+            PdhCloseQuery(diskIOQuery);
+            diskIOQuery = NULL;
+            return;
+        }
+
+        PdhCollectQueryData(diskIOQuery);
+        queryInitialized = 1;
+        return;
+    }
+
+    if (PdhCollectQueryData(diskIOQuery) != ERROR_SUCCESS) {
+        return;
+    }
+
+    PDH_FMT_COUNTERVALUE diskInput;
+    PDH_FMT_COUNTERVALUE diskOutput;
+
+    if (PdhGetFormattedCounterValue(readCounter, PDH_FMT_DOUBLE, NULL, &diskInput) == ERROR_SUCCESS) {
+        *readBps = diskInput.doubleValue;
+    }
+
+    if (PdhGetFormattedCounterValue(writeCounter, PDH_FMT_DOUBLE, NULL, &diskOutput) == ERROR_SUCCESS) {
+        *writeBps = diskOutput.doubleValue;
+    }
+}
 
 char *getCPUUsage() {
     // Declare the struct that will contain the metrics gathered
@@ -20,46 +109,39 @@ char *getCPUUsage() {
     char* modelName = getCPUModelName();
 
     // Store the name extracted in the struct
-    strcpy(processorInfo.modelName, modelName);
+    strcpy(processorInfo.modelName, modelName != NULL ? modelName : "Unknown CPU");
 
-    // Initialize where the output and query should be stored
-    PDH_HQUERY cpuUsageQuery;
-
-    // This will decide where we will be collecting data from (NULL meaning live data collection), the 0 means no custom
-    // user data will be attached to the output. Third parameter decides where the query and output is stored.
-    PdhOpenQuery(NULL, 0, &cpuUsageQuery);
-
-    // Initialize a variable that will receive the counter handle
-    PDH_HCOUNTER cpuUsageCounter;
-
-    // Add a specific performance counter to the query
-    PdhAddCounter(cpuUsageQuery, L"\\Processor(_Total)\\% Processor Time", 0, &cpuUsageCounter);
-
-    // Capture the current performance counter values
-    // First call is to initialize
-    PdhCollectQueryData(cpuUsageQuery);
-
-    // Wait 1000 milliseconds
-    Sleep(1000);
-
-    // second call to get updated data
-    PdhCollectQueryData(cpuUsageQuery);
-
-    // Retrieve the latest value for a counter in a readable format
-    // Struct which will hold the result
-    PDH_FMT_COUNTERVALUE cpuUsage;
-
-    // Retrieval of values
-    PdhGetFormattedCounterValue(cpuUsageQuery, PDH_FMT_DOUBLE, NULL, &cpuUsage);
-
-    // Store the values gathered in the struct
-    procInfo.CPUUsage = cpuUsage.doubleValue;
+    // Sample CPU usage from rolling system times so updates remain smooth in the live UI.
+    processorInfo.CPUUsage = sampleCPUUsage();
+    processorInfo.CPUSpeed = (double) getCPUFrequency();
+    processorInfo.CPUProcesses = getProcessCount();
+    processorInfo.CPUThreads = getThreadCount();
 
     // Build the JSON using the gathered CPU data
-    char *jsonObject = buildCPUJSON(procInfo);
+    char *jsonObject = buildCPUJSON(processorInfo);
+    if (modelName != NULL) {
+        free(modelName);
+    }
 
     // Return the final result
     return jsonObject;
+}
+
+static const char *getDriveTypeLabel(UINT driveType) {
+    switch (driveType) {
+        case DRIVE_FIXED:
+            return "SSD";
+        case DRIVE_REMOVABLE:
+            return "RM";
+        case DRIVE_REMOTE:
+            return "NW";
+        case DRIVE_CDROM:
+            return "CD";
+        case DRIVE_RAMDISK:
+            return "RD";
+        default:
+            return "NA";
+    }
 }
 
 char *getDiskUsage() {
@@ -77,37 +159,9 @@ char *getDiskUsage() {
 
     int index = 0; // Use to iterate over drives when extracting info.
 
-    // Initialize where the output and query should be stored
-    PDH_HQUERY diskIOQuery;
-
-    // Open the query
-    PdhOpenQuery(NULL, 0, &diskIOQuery);
-
-    // Initialize variables that will receive the counter handle
-    PDH_HCOUNTER readCounter;
-    PDH_HCOUNTER writeCounter;
-
-    // Add specific performance counters to the query
-    PdhAddCounter(diskIOQuery, L"\\PhysicalDisk(_Total)\\Disk Read Bytes/sec", 0, &readCounter);
-    PdhAddCounter(diskIOQuery, L"\\PhysicalDisk(_Total)\\Disk Write Bytes/sec", 0, &writeCounter);
-
-    // First call is to initialize
-    PdhCollectQueryData(readCounter);
-    PdhCollectQueryData(writeCounter);
-
-    // Wait 1000 milliseconds
-    Sleep(1000);
-
-    // second call to get updated data
-    PdhCollectQueryData(readCounter); // second call to get updated data
-    PdhCollectQueryData(writeCounter);
-    // Structs which will hold the result
-    PDH_FMT_COUNTERVALUE diskInput;
-    PDH_FMT_COUNTERVALUE diskOutput;
-
-    // Extract the values
-    PdhGetFormattedCounterValue(diskIOQuery, PDH_FMT_DOUBLE, NULL, &diskInput);
-    PdhGetFormattedCounterValue(diskIOQuery, PDH_FMT_DOUBLE, NULL, &diskOutput);
+    double readBps = 0.0;
+    double writeBps = 0.0;
+    collectDiskThroughput(&readBps, &writeBps);
 
     // Iterate over the disks and store the values in the array of structs
     for(char *tempPath = paths; *tempPath; tempPath += strlen(tempPath) + 1) {
@@ -118,14 +172,18 @@ char *getDiskUsage() {
             &diskInfos[index].freeDiskSpace,
             &diskInfos[index].totalDiskSpace,
             &diskInfos[index].userFree);
-        diskInfos[index].readSpeed = diskInput.doubleValue;
-        diskInfos[index].writeSpeed = diskOutput.doubleValue;
+        strcpy(diskInfos[index].type, getDriveTypeLabel(GetDriveType(tempPath)));
+        diskInfos[index].readSpeed = readBps;
+        diskInfos[index].writeSpeed = writeBps;
 
         index++;
     }
 
     // Build the array of JSON objects
     char *jsonObject = buildDiskJSON(diskInfos, numberOfDrives);
+
+    free(paths);
+    free(diskInfos);
 
     // Return the array of objects
     return jsonObject;
@@ -152,6 +210,65 @@ char *getMemoryUsage() {
 
     // Return the Object
     return jsonObject;
+}
+
+DWORD getProcessCount() {
+    DWORD processCount = 0;
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+
+    if (snapshot == INVALID_HANDLE_VALUE) {
+        return 0;
+    }
+
+    PROCESSENTRY32 processEntry;
+    processEntry.dwSize = sizeof(PROCESSENTRY32);
+
+    if (Process32First(snapshot, &processEntry)) {
+        do {
+            processCount++;
+        } while (Process32Next(snapshot, &processEntry));
+    }
+
+    CloseHandle(snapshot);
+    return processCount;
+}
+
+DWORD getThreadCount() {
+    DWORD threadCount = 0;
+    HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+
+    if (snapshot == INVALID_HANDLE_VALUE) {
+        return 0;
+    }
+
+    THREADENTRY32 threadEntry;
+    threadEntry.dwSize = sizeof(THREADENTRY32);
+
+    if (Thread32First(snapshot, &threadEntry)) {
+        do {
+            threadCount++;
+        } while (Thread32Next(snapshot, &threadEntry));
+    }
+
+    CloseHandle(snapshot);
+    return threadCount;
+}
+
+DWORD getCPUFrequency() {
+    HKEY registryKey;
+    DWORD frequencyMHz = 0;
+    DWORD valueSize = sizeof(DWORD);
+
+    if (RegOpenKeyExA(HKEY_LOCAL_MACHINE,
+                      "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
+                      0,
+                      KEY_READ,
+                      &registryKey) == ERROR_SUCCESS) {
+        RegQueryValueExA(registryKey, "~MHz", NULL, NULL, (LPBYTE) &frequencyMHz, &valueSize);
+        RegCloseKey(registryKey);
+    }
+
+    return frequencyMHz;
 }
 
 #elif defined(__APPLE__)
@@ -203,9 +320,5 @@ char *getDiskUsage() {
 
 
     char *jsonObject = buildDiskJSON(diskInfo, numberOfDrives);
-
-    // Return the object
-    return jsonObject;
-}
 
 #endif
